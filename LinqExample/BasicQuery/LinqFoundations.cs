@@ -398,5 +398,43 @@ namespace LinqExample.BasicQuery
                 Console.WriteLine(r);
             }
         }
+
+
+        public void GetSelectQuery()
+        {
+
+            Customer[] customers = Utitlity.GetCustomer();
+
+            var customerWithNameSelect = customers.Select(c => c.Name);
+
+            var customerWithNameCitySelect = customers.Select(c => new {c.Name, c.City});
+
+            var customerWithIndexAndValue = customers.Select((val , index) => new {Name = val.Name, City = val.City, index});
+
+
+            foreach(var item in customerWithIndexAndValue)
+            {
+                Console.WriteLine(item);
+            }
+
+
+        }
+
+
+        public void TwoMoreTableJoin()
+        {
+            var orders = Utitlity.GetOrders();
+            var products = Utitlity.GetProduct();
+            var category = Utitlity.Categoriy();
+
+            var joinsTwoMore = from o in orders join p in products  on  o.IdProduct equals p.IdProduct join cat in category on  p.IdCategory equals cat.IdCategory select new {OrderId = o.IdOrder, ProductId = o.IdProduct, CategoryId = cat.IdCategory, CategoryName = cat.Name};
+
+
+            foreach(var item in joinsTwoMore)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
     }
 }

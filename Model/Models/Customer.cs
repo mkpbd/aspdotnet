@@ -12,6 +12,7 @@ namespace Model.Models
         public string City { get; set; }
         public Order[] Orders { get; set; }
         public Countries Country { get; set; }
+        public int customerId { get; set; }
 
         public override string ToString()
         {

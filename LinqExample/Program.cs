@@ -14,4 +14,6 @@ LinqFoundations lf = new LinqFoundations();
 //lf.DefferQueryExpression();
 //lf.WhereCluseWithCustomers();
 //lf.CustomerOrders();
-lf.GetOrderingBy();
+//lf.GetOrderingBy();
+//lf.GetSelectQuery();
+lf.TwoMoreTableJoin();
