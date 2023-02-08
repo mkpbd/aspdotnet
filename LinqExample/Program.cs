@@ -12,4 +12,6 @@ LinqFoundations lf = new LinqFoundations();
 //lf.CompositiesKey();
 //lf.LetKeywordWithCount();
 //lf.DefferQueryExpression();
-lf.WhereCluseWithCustomers();
+//lf.WhereCluseWithCustomers();
+//lf.CustomerOrders();
+lf.GetOrderingBy();

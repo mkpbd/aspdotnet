@@ -357,5 +357,46 @@ namespace LinqExample.BasicQuery
                 Console.WriteLine(c.Name + " country = " + c.Country + " City = " + c.City);
             }
         }
+
+
+        public  void CustomerOrders()
+        {
+            Order[] orders = Utitlity.GetOrders();
+
+            var customerOrderWithCountry = from o in orders
+                                           where o.Customer.Country == Countries.Italy
+                                           select new
+                                           {
+                                               o.IdOrder,
+                                               o.Customer.Name,
+                                               o.Customer.Country,
+                                               o.Customer.City,
+                                               o.Product.IdProduct,
+                                               o.Product.ProductName
+                                           };
+
+
+            foreach(var o in orders)
+            {
+                Console.WriteLine(o.Product.ProductName + " "+ o.IdOrder);
+            }
+        }
+
+
+        public void GetOrderingBy()
+        {
+
+            Customer[] customers = Utitlity.GetCustomer();
+
+            //var oderingByCustoersCountry = from c in customers where c.Country == Countries.Italy orderby c.Name descending select c;
+            var oderingByCustoersCountry = from c in customers where c.Country == Countries.Italy orderby c.Name descending , c.City ascending select c;
+
+            var customer = (from c in customers where c.Country == Countries.Italy orderby c.Name descending select c).Reverse();
+
+            foreach(var r in oderingByCustoersCountry)
+            {
+                Console.WriteLine(r);
+            }
+        }
     }
 }

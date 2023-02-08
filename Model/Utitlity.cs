@@ -37,7 +37,7 @@ namespace Model
 
         public static Customer[] GetCustomer()
         {
-           Customer[] customers = new Customer[] {
+            Customer[] customers = new Customer[] {
                         new Customer {Name = "Paolo", City = "Brescia",
                         Country = Countries.Italy, Orders = new Order[] { new Order { IdOrder = 1, Quantity = 3, IdProduct = 1 , Shipped = false, Month = "January"},
                         new Order { IdOrder = 2, Quantity = 5, IdProduct = 2 , Shipped = true, Month = "May"}}},
@@ -54,7 +54,94 @@ namespace Model
             return customers;
         }
 
+        // get orders methods 
 
+        public static Order[] GetOrders()
+        {
+            Order[] orders = new Order[]
+            {
+                new Order
+                {
+                    IdOrder = 1,
+                    Quantity = 1,
+                    IdProduct = 1,
+                    Customer = new Customer
+                    {
+                         City ="a", Country= Countries.USA,
+                          Name = "jamal"
+                    },
+                      Product = new Product
+                    {
+                         IdProduct= 21,
+                          IdCategory = 2,
+                           Description = "abc",
+                            Price =100,
+                             ProductName="two product name"
+                    }
+                },
+                new Order
+                {
+                    IdOrder = 1,
+                    Quantity = 1,
+                    IdProduct = 1,
+                    Customer = new Customer
+                    {
+                         City ="a", Country = Countries.Italy,
+                          Name = "jamal"
+                    },
+                    Product = new Product
+                    {
+                         IdProduct= 1,
+                          IdCategory = 1,
+                           Description = "abc",
+                            Price =100,
+                             ProductName="one product name"
+                    }
+                },
+                new Order
+                {
+                    IdOrder = 3,
+                    Quantity = 1,
+                    IdProduct = 1,
+                    Customer = new Customer
+                    {
+                         City ="a", Country= Countries.Italy,
+                          Name = "tomal"
+                    },
+                      Product = new Product
+                    {
+                         IdProduct= 3,
+                          IdCategory = 3,
+                           Description = "abc",
+                            Price =100,
+                             ProductName="three product name"
+                    }
+                },
+                new Order
+                {
+                    IdOrder = 5,
+                    Quantity = 1,
+                    IdProduct = 1,
+                    Customer = new Customer
+                    {
+                         City ="a", Country = Countries.USA,
+                          Name = "kamal"
+                    },
+                      Product = new Product
+                    {
+                         IdProduct= 4,
+                          IdCategory = 4,
+                           Description = "four abc",
+                            Price =100,
+                             ProductName="four product name"
+                    }
+                },
+
+            };
+            return orders;
+
+
+        }
 
 
     }
