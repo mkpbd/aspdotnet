@@ -436,5 +436,34 @@ namespace LinqExample.BasicQuery
             }
 
         }
+
+
+        public void GetJoinDataToTable()
+        {
+            Customer[] customers = Utitlity.GetCustomer();
+            Product[] products = Utitlity.GetProduct();
+
+            var customerOrders = from cus in customers
+                                 from o in cus.Orders
+                                 join p in products on o.IdProduct equals p.IdProduct
+                                 select new {Name = cus.Name, OrderAmount = o.Quantity * p.Price };
+
+
+            var joinTwoTables = (from cus in customers
+                                 from o in cus.Orders
+                                 select  o.Quantity ).Min();
+
+            var avarageProduct = (from p in products select p.Price).Average();
+
+            var avarageProudctWithQty = (from p in products select new { p.Price, p.IdProduct }).Average(p => p.Price);
+
+            //foreach(var c in customerOrders)
+            //{
+            //    Console.WriteLine(c);
+            //}
+
+            Console.WriteLine(joinTwoTables);
+
+        }
     }
 }
