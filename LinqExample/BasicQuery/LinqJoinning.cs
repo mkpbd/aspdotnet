@@ -158,7 +158,82 @@ namespace LinqExample.BasicQuery
 
 
 
+        public void LinqKeywodsOprators()
+        {
 
+            var result = customers.Take(3).Union(customers.Skip(3));
+            //var results = customers.TakeWhile(p).Union(customers.SkipWhile(p));
+
+            var item = customers.First(c => c.Country == Countries.USA);
+
+            //Listin g 3 - 58 Examples of the FirstOrDefault operator syntax
+            var items = customers.FirstOrDefault(c => c.City == "Las Vegas");
+            Console.WriteLine(item == null ? "null" : item.ToString()); // returns null
+            IEnumerable<Customer> emptyCustomers = Enumerable.Empty<Customer>();
+            items = emptyCustomers.FirstOrDefault(c => c.City == "Las Vegas");
+            Console.WriteLine(item == null ? "null" : item.ToString()); // returns null
+
+            // returns Product 1
+            var itemss = products.Single(p => p.IdProduct == 1);
+            Console.WriteLine(item == null ? "null" : item.ToString());
+            // InvalidOperationException
+            itemss = products.Single();
+            Console.WriteLine(item == null ? "null" : item.ToString());
+            // InvalidOperationException
+            IEnumerable<Product> emptyProducts = Enumerable.Empty<Product>();
+            itemss = emptyProducts.Single(p => p.IdProduct == 1);
+            Console.WriteLine(item == null ? "null" : item.ToString());
+
+
+            // returns Product at index 2
+            var item1 = products.ElementAt(2);
+            Console.WriteLine(item == null ? "null" : item.ToString());
+            // returns null
+            item1 = Enumerable.Empty<Product>().ElementAtOrDefault(6);
+            Console.WriteLine(item == null ? "null" : item.ToString());
+            // returns null
+            item1 = products.ElementAtOrDefault(6);
+            Console.WriteLine(item == null ? "null" : item.ToString());
+
+
+            var italianCustomers =
+                                from c in customers
+                                where c.Country == Countries.Italy
+                                select c;
+                                            var americanCustomers =
+                                            from c in customers
+                                            where c.Country == Countries.USA
+                                            select c;
+                                            var expr = italianCustomers.Concat(americanCustomers);
+
+        }
+
+
+        public void ConventionOperators()
+        {
+            var productsQuery =
+                        (from p in products
+                         where p.Price >= 30
+                         select p)
+                        .ToList();
+
+            var ordersWithProducts =
+            from c in customers
+            from o in c.Orders
+            join p in productsQuery
+            on o.IdProduct equals p.IdProduct
+            select new
+            {
+                p.IdProduct,
+                o.Quantity,
+                p.Price,
+                TotalAmount = o.Quantity * p.Price
+            };
+            foreach (var order in ordersWithProducts)
+            {
+                Console.WriteLine(order);
+            }
+        }
 
     }
 }
