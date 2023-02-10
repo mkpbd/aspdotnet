@@ -271,7 +271,7 @@ namespace LinqExample.BasicQuery
 
 
 
-            var orderCounts = from c in customers where c.Orders.Count () > 20 select c.Orders;
+            var orderCounts = from c in customers where c.Orders.Count() > 20 select c.Orders;
 
 
             var city =
@@ -298,10 +298,34 @@ namespace LinqExample.BasicQuery
 
             var customerCountry =
                 from c in customers
-                        where c.Country == Countries.USA
-                        select new { c.customerId, Name = c.Name.ToUpper() } into r
-                        orderby r.Name
-                        select r;
+                where c.Country == Countries.USA
+                select new { c.customerId, Name = c.Name.ToUpper() } into r
+                orderby r.Name
+                select r;
+
+
+            //var queryCustomers =
+            //            from c in customers
+            //            join o in c.Order
+            //            on c.customerId equals o.CustomerId
+            //            into orderss
+            //            select new { c.CustomerID, c.CompanyName, orderss };
+
+
+            var query2 =
+                    from s in (
+                    from c in customers
+                    where c.Name.Length > 10
+                    select new
+                    {
+                        c.Name,
+                        c.customerId,
+                        c.City,
+
+                    }
+                    )
+                    where s.Name == "Abc"
+                    select new { s.Name, s.customerId, s.City };
 
 
         }
