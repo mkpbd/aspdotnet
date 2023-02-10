@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Collections;
+using System.Reflection;
 
 namespace LinqExample.BasicQuery
 {
@@ -200,11 +202,11 @@ namespace LinqExample.BasicQuery
                                 from c in customers
                                 where c.Country == Countries.Italy
                                 select c;
-                                            var americanCustomers =
-                                            from c in customers
-                                            where c.Country == Countries.USA
-                                            select c;
-                                            var expr = italianCustomers.Concat(americanCustomers);
+            var americanCustomers =
+            from c in customers
+            where c.Country == Countries.USA
+            select c;
+            var expr = italianCustomers.Concat(americanCustomers);
 
         }
 
@@ -233,7 +235,79 @@ namespace LinqExample.BasicQuery
             {
                 Console.WriteLine(order);
             }
+
+            //  LISTINg 3 - 68 An example of the ToDictionary operator, applied to customers
+
+            var customersDictionary =
+                                customers
+                                .ToDictionary(c => c.Name,
+                                c => new { c.Name, c.City });
+
+
+            //    Listin g 3 - 69 An example of the ToLookup operator, used to group orders by product
+            var ordersByProduct =
+                                  (from c in customers
+                                   from o in c.Orders
+                                   select o)
+                                    .ToLookup(o => o.IdProduct);
+
+            Console.WriteLine("\n\nNumber of orders for Product 1: {0}\n",
+            ordersByProduct[1].Count());
         }
+
+        public void LinqQuery()
+        {
+
+            var query =
+                        from c in customers
+                        where c.City == "USA"
+                        && c.Name == "WA"
+                        select new { c.Country, c.Name, c.City };
+
+            var ordersCustomer =
+                                from o in orders
+                                where o.IdProduct == 10528
+                                select o;
+
+
+
+            var orderCounts = from c in customers where c.Orders.Count () > 20 select c.Orders;
+
+
+            var city =
+                    from c in customers
+                    where c.City == "ab"
+                    select c.City;
+            IEnumerator<string> enumerator = city.GetEnumerator();
+
+            var companyNames = city.ToList();
+
+
+            var customerName =
+                    from c in customers
+                    where c.customerId == 2
+                    select c;
+
+            var enumeratosr = customerName.GetEnumerator();
+            if (enumeratosr.MoveNext())
+            {
+                var customer = enumeratosr.Current;
+                Console.WriteLine("{0} {1}", customer.customerId, customer.Name);
+            }
+
+
+            var customerCountry =
+                from c in customers
+                        where c.Country == Countries.USA
+                        select new { c.customerId, Name = c.Name.ToUpper() } into r
+                        orderby r.Name
+                        select r;
+
+
+        }
+
+
+
 
     }
 }
