@@ -537,5 +537,97 @@ namespace LinqExample.BasicQuery
 
 
         }
+
+
+        public void SomeMehodUseInLinq()
+        {
+            Customer[] customers = Utitlity.GetCustomer();
+            Product[] products = Utitlity.GetProduct();
+
+            var minmum =
+                     (from c in customers
+                      from o in c.Orders
+                      select o.Quantity
+                     ).Min();
+
+            var maximum =
+                    (from c in customers
+                     from o in c.Orders
+                     select o.Quantity
+                    ).Max();
+
+            var minimumQuery =
+                (from c in customers
+                 from o in c.Orders
+                 select new { o.IdProduct, o.Quantity }
+                ).Min();
+
+            var maximumQuery =
+               (from c in customers
+                from o in c.Orders
+                select new { o.IdProduct, o.Quantity }
+               ).Max();
+
+
+            var minimumQuntiyWithAggrigate =
+                        (from c in customers
+                         from o in c.Orders
+                         select new { o.IdProduct, o.Quantity }
+                        ).Min(o => o.Quantity);
+
+            var avgProducts =
+                        (from p in products
+                         select p.Price
+                        ).Average();
+            var avgProductAggrigate =
+                    (from p in products
+                     select new { p.IdProduct, p.Price }
+                    ).Average(p => p.Price);
+
+
+
+            var customersWithOrderss =
+                        from c in customers
+                        join o in (
+                                from c in customers
+                                from o in c.Orders
+                                join p in products
+                                on o.IdProduct equals p.IdProduct
+                                select new { c.Name, OrderAmount = o.Quantity * p.Price }
+                        ) on c.Name equals o.Name
+                        into customersWithOrders
+                        select new
+                        {
+                            c.Name,
+                            AverageAmount = customersWithOrders.Average(o => o.OrderAmount)
+                        };
+
+
+
+            var expr =
+                            from c in customers
+                            join o in (
+                            from c in customers
+                            from o in c.Orders
+                            join p in products
+                            on o.IdProduct equals p.IdProduct
+                            select new
+                            {
+                                c.Name,
+                                o.IdProduct,
+                                OrderAmount = o.Quantity * p.Price
+                            }
+                            ) on c.Name equals o.Name
+                            into orders
+                            select new
+                            {
+                                c.Name,
+                                MaxOrderAmount =
+                            orders
+                            .Aggregate((a, o) => a.OrderAmount > o.OrderAmount ?
+                            a : o)
+                            .OrderAmount
+                            };
+        }
     }
 }
