@@ -16,4 +16,9 @@ LinqFoundations lf = new LinqFoundations();
 //lf.CustomerOrders();
 //lf.GetOrderingBy();
 //lf.GetSelectQuery();
+
 lf.TwoMoreTableJoin();
+
+//lf.TwoMoreTableJoin();
+lf.GetJoinDataToTable();
+
