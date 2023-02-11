@@ -38,8 +38,16 @@ namespace Model
         public static Customer[] GetCustomer()
         {
             Customer[] customers = new Customer[] {
+<<<<<<< HEAD
                         new Customer {Name = "Paolo", City = "Brescia", customerId = 1,
                         Country = Countries.Italy, Orders = new Order[] { new Order { IdOrder = 1, Quantity = 3, IdProduct = 1 , Shipped = false, Month = "January"},
+=======
+                                 new Customer {Name = "Paolo", City = "Brescia", customerId = 1,
+
+                        Country = Countries.Italy, 
+                         Orders = new Order[] { new Order { IdOrder = 1, Quantity = 3, IdProduct = 1 , Shipped = false, Month = "January"
+                        },
+>>>>>>> 707996053345e65ffde5c46265f88db00be4ce69
                         new Order { IdOrder = 2, Quantity = 5, IdProduct = 2 , Shipped = true, Month = "May"}}},
                                 new Customer {Name = "Marco", City = "Torino", Country = Countries.Italy, Orders = new Order[] {
                                  new Order { IdOrder = 3, Quantity = 10, IdProduct = 1 , Shipped = false, Month = "July"},
