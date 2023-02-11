@@ -124,9 +124,9 @@ namespace LinqExample.BasicQuery
             developers.Add(new Developer { Name = "Marco", Language = "C#" });
             developers.Add(new Developer { Name = "Frank", Language = "VB.NET" });
 
-            var developersUsingCSharp =  from Developer d in developers where d.Language == "C#" select d;
+            var developersUsingCSharp = from Developer d in developers where d.Language == "C#" select d;
 
-            foreach(var dd in developersUsingCSharp)
+            foreach (var dd in developersUsingCSharp)
             {
                 Console.WriteLine($"{dd.Name}  {dd.Language} ");
             }
@@ -154,7 +154,7 @@ namespace LinqExample.BasicQuery
             var joiningTwoTablesFiltering = from c in customers from o in c.Orders where o.EuroAmount > 150 select new { c.Name, o.Description, o.EuroAmount, o.IdOrder };
 
 
-            foreach(var dd in joiningTwo)
+            foreach (var dd in joiningTwo)
             {
                 Console.WriteLine($"{dd.Name}   {dd.EuroAmount} {dd.Description}");
             }
@@ -190,11 +190,11 @@ namespace LinqExample.BasicQuery
                                                               DeveloperCount = temporaryVariableInGroup.Count()
                                                           };
 
-            foreach(var d in developerGroupByLanguageWithCal)
+            foreach (var d in developerGroupByLanguageWithCal)
             {
-                foreach(var c in d)
+                foreach (var c in d)
                 {
-                    Console.WriteLine(c.Age + " "+ c.Language);
+                    Console.WriteLine(c.Age + " " + c.Language);
                 }
             }
         }
@@ -205,11 +205,11 @@ namespace LinqExample.BasicQuery
             Developer[] developers = GetDevelopers();
 
 
-            var orderByCluse = from ds in developers orderby ds.Age ascending  select new { Language = ds.Language, Age = ds.Age , Name = ds.Name};
+            var orderByCluse = from ds in developers orderby ds.Age ascending select new { Language = ds.Language, Age = ds.Age, Name = ds.Name };
 
-            foreach(var d in orderByCluse)
+            foreach (var d in orderByCluse)
             {
-                Console.WriteLine(d.Age + " "+ d.Name + " "+d.Language);
+                Console.WriteLine(d.Age + " " + d.Name + " " + d.Language);
             }
 
         }
@@ -233,12 +233,12 @@ namespace LinqExample.BasicQuery
                                          into productAndCategoryTemporaryVariable
                                           select new
                                           {
-                                            ct.IdCategory,
+                                              ct.IdCategory,
                                               ct.Name,
                                               Products = productAndCategoryTemporaryVariable
                                           };
 
-            foreach(var pc in productAndCategory)
+            foreach (var pc in productAndCategory)
             {
                 //Console.WriteLine(pc.ProductName + " "+ pc.Description + " "+ pc.CategoryName + " "+ pc.IdCategory);
                 Console.WriteLine(pc);
@@ -272,13 +272,13 @@ namespace LinqExample.BasicQuery
             {
                 Console.WriteLine(item);
             }
-        
+
         }
 
 
         public void CompositiesKey()
         {
-            Category[] categories =   Utitlity.Categoriy();
+            Category[] categories = Utitlity.Categoriy();
             Product[] products = Utitlity.GetProduct();
 
 
@@ -288,22 +288,22 @@ namespace LinqExample.BasicQuery
                                    {
                                        c.Name,
                                        c.IdCategory,
-                                        data = productsByCategory
-                                    
+                                       data = productsByCategory
+
 
                                    };
 
-            foreach(var dd in compositekeyJoin)
+            foreach (var dd in compositekeyJoin)
             {
 
-                foreach(var d in dd.data)
+                foreach (var d in dd.data)
                 {
-                    Console.WriteLine(d.Year + " "+ d.Description);
+                    Console.WriteLine(d.Year + " " + d.Description);
                 }
             }
 
 
-           
+
 
 
         }
@@ -330,14 +330,14 @@ namespace LinqExample.BasicQuery
 
         public void DefferQueryExpression()
         {
-           List<Developer> developers = new List<Developer>(GetDevelopers());
+            List<Developer> developers = new List<Developer>(GetDevelopers());
             developers.Add(new Developer() { Age = 10, Language = "JS", Name = "JavaScript" });
 
 
             var queary = from q in developers where q.Language == "C#" select q;
 
 
-            foreach(var q in queary)
+            foreach (var q in queary)
             {
                 Console.WriteLine(q.Language);
             }
@@ -359,7 +359,7 @@ namespace LinqExample.BasicQuery
         }
 
 
-        public  void CustomerOrders()
+        public void CustomerOrders()
         {
             Order[] orders = Utitlity.GetOrders();
 
@@ -376,9 +376,9 @@ namespace LinqExample.BasicQuery
                                            };
 
 
-            foreach(var o in orders)
+            foreach (var o in orders)
             {
-                Console.WriteLine(o.Product.ProductName + " "+ o.IdOrder);
+                Console.WriteLine(o.Product.ProductName + " " + o.IdOrder);
             }
         }
 
@@ -389,11 +389,11 @@ namespace LinqExample.BasicQuery
             Customer[] customers = Utitlity.GetCustomer();
 
             //var oderingByCustoersCountry = from c in customers where c.Country == Countries.Italy orderby c.Name descending select c;
-            var oderingByCustoersCountry = from c in customers where c.Country == Countries.Italy orderby c.Name descending , c.City ascending select c;
+            var oderingByCustoersCountry = from c in customers where c.Country == Countries.Italy orderby c.Name descending, c.City ascending select c;
 
             var customer = (from c in customers where c.Country == Countries.Italy orderby c.Name descending select c).Reverse();
 
-            foreach(var r in oderingByCustoersCountry)
+            foreach (var r in oderingByCustoersCountry)
             {
                 Console.WriteLine(r);
             }
@@ -413,6 +413,14 @@ namespace LinqExample.BasicQuery
 
 
             foreach(var item in customerWithIndexAndValue)
+
+            var customerWithNameCitySelect = customers.Select(c => new { c.Name, c.City });
+
+            var customerWithIndexAndValue = customers.Select((val, index) => new { Name = val.Name, City = val.City, index });
+
+
+            foreach (var item in customerWithIndexAndValue)
+
             {
                 Console.WriteLine(item);
             }
@@ -427,14 +435,214 @@ namespace LinqExample.BasicQuery
             var products = Utitlity.GetProduct();
             var category = Utitlity.Categoriy();
 
+
             var joinsTwoMore = from o in orders join p in products  on  o.IdProduct equals p.IdProduct join cat in category on  p.IdCategory equals cat.IdCategory select new {OrderId = o.IdOrder, ProductId = o.IdProduct, CategoryId = cat.IdCategory, CategoryName = cat.Name};
 
 
             foreach(var item in joinsTwoMore)
+
+            var joinsTwoMore = from o in orders join p in products on o.IdProduct equals p.IdProduct join cat in category on p.IdCategory equals cat.IdCategory select new { OrderId = o.IdOrder, ProductId = o.IdProduct, CategoryId = cat.IdCategory, CategoryName = cat.Name };
+
+
+            foreach (var item in joinsTwoMore)
+
             {
                 Console.WriteLine(item);
             }
 
+        }
+
+
+        public void GetJoinDataToTable()
+        {
+            Customer[] customers = Utitlity.GetCustomer();
+            Product[] products = Utitlity.GetProduct();
+
+            var customerOrders = from cus in customers
+                                 from o in cus.Orders
+                                 join p in products on o.IdProduct equals p.IdProduct
+                                 select new { Name = cus.Name, OrderAmount = o.Quantity * p.Price };
+
+
+            var joinTwoTables = (from cus in customers
+                                 from o in cus.Orders
+                                 select o.Quantity).Min();
+
+            var avarageProduct = (from p in products select p.Price).Average();
+
+            var avarageProudctWithQty = (from p in products select new { p.Price, p.IdProduct }).Average(p => p.Price);
+
+            //foreach(var c in customerOrders)
+            //{
+            //    Console.WriteLine(c);
+            //}
+
+            Console.WriteLine(joinTwoTables);
+
+        }
+
+
+        public void GroupJoiningBySubQueryOrJoinKeyWord()
+        {
+
+            Customer[] customers = Utitlity.GetCustomer();
+            Product[] products = Utitlity.GetProduct();
+
+
+            var customerOrders = from c in customers from o in c.Orders select o;
+
+            var joiningCustomerOrders = from p in products join o in customerOrders on p.IdProduct equals o.IdProduct select new { p.IdProductId, o.IdOrder, p.ProductName, o.Description };
+
+
+            var joinWithNestedQuery = from p in products
+                                      join o in (
+                                        from c in customers from o in c.Orders select o
+                                      ) on p.IdProduct equals o.IdProduct
+                                      select new
+                                      {
+                                          p.IdProductId,
+                                          o.IdOrder,
+                                          p.ProductName,
+                                          o.Description
+
+                                      };
+
+
+            var customersOrders =
+                    from c in customers
+                    from o in c.Orders
+                    join p in products
+                    on o.IdProduct equals p.IdProduct
+                    select new { c.Name, OrderAmount = o.Quantity * p.Price };
+
+
+
+
+            var expr =
+               from c in customers
+               join o in customersOrders
+               on c.Name equals o.Name
+               into customersWithOrders
+               select new
+               {
+                   c.Name,
+                   TotalAmount = customersWithOrders.Sum(o => o.OrderAmount)
+               };
+
+
+            var expr1 =
+                       from c in customers
+                       join o in (
+                       from c in customers
+                       from o in c.Orders
+                       join p in products
+                       on o.IdProduct equals p.IdProduct
+                       select new { c.Name, OrderAmount = o.Quantity * p.Price }
+                       ) on c.Name equals o.Name
+                       into customersWithOrders
+                       select new
+                       {
+                           c.Name,
+                           TotalAmount = customersWithOrders.Sum(o => o.OrderAmount)
+                       };
+
+
+
+
+
+
+        }
+
+
+        public void SomeMehodUseInLinq()
+        {
+            Customer[] customers = Utitlity.GetCustomer();
+            Product[] products = Utitlity.GetProduct();
+
+            var minmum =
+                     (from c in customers
+                      from o in c.Orders
+                      select o.Quantity
+                     ).Min();
+
+            var maximum =
+                    (from c in customers
+                     from o in c.Orders
+                     select o.Quantity
+                    ).Max();
+
+            var minimumQuery =
+                (from c in customers
+                 from o in c.Orders
+                 select new { o.IdProduct, o.Quantity }
+                ).Min();
+
+            var maximumQuery =
+               (from c in customers
+                from o in c.Orders
+                select new { o.IdProduct, o.Quantity }
+               ).Max();
+
+
+            var minimumQuntiyWithAggrigate =
+                        (from c in customers
+                         from o in c.Orders
+                         select new { o.IdProduct, o.Quantity }
+                        ).Min(o => o.Quantity);
+
+            var avgProducts =
+                        (from p in products
+                         select p.Price
+                        ).Average();
+            var avgProductAggrigate =
+                    (from p in products
+                     select new { p.IdProduct, p.Price }
+                    ).Average(p => p.Price);
+
+
+
+            var customersWithOrderss =
+                        from c in customers
+                        join o in (
+                                from c in customers
+                                from o in c.Orders
+                                join p in products
+                                on o.IdProduct equals p.IdProduct
+                                select new { c.Name, OrderAmount = o.Quantity * p.Price }
+                        ) on c.Name equals o.Name
+                        into customersWithOrders
+                        select new
+                        {
+                            c.Name,
+                            AverageAmount = customersWithOrders.Average(o => o.OrderAmount)
+                        };
+
+
+
+            var expr =
+                            from c in customers
+                            join o in (
+                            from c in customers
+                            from o in c.Orders
+                            join p in products
+                            on o.IdProduct equals p.IdProduct
+                            select new
+                            {
+                                c.Name,
+                                o.IdProduct,
+                                OrderAmount = o.Quantity * p.Price
+                            }
+                            ) on c.Name equals o.Name
+                            into orders
+                            select new
+                            {
+                                c.Name,
+                                MaxOrderAmount =
+                            orders
+                            .Aggregate((a, o) => a.OrderAmount > o.OrderAmount ?
+                            a : o)
+                            .OrderAmount
+                            };
         }
     }
 }
