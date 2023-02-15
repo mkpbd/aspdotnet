@@ -49,6 +49,15 @@ namespace ReflectionApiPractices.Reflection
                     
                     
                     }
+
+            Console.WriteLine("=============== Get Constructors ================");
+
+            ConstructorInfo[] constructorInfos = t.GetConstructors();
+
+            foreach(var cons in constructorInfos)
+            {
+                Console.WriteLine(cons.Name + " , "+ cons.Attributes);
+            }
         }
     }
 }
