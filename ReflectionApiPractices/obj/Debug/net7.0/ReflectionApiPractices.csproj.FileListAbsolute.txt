@@ -1,0 +1,15 @@
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\bin\Debug\net7.0\ReflectionApiPractices.exe
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\bin\Debug\net7.0\ReflectionApiPractices.deps.json
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\bin\Debug\net7.0\ReflectionApiPractices.runtimeconfig.json
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\bin\Debug\net7.0\ReflectionApiPractices.dll
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\bin\Debug\net7.0\ReflectionApiPractices.pdb
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.csproj.AssemblyReference.cache
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.AssemblyInfoInputs.cache
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.AssemblyInfo.cs
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.csproj.CoreCompileInputs.cache
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.dll
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\refint\ReflectionApiPractices.dll
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.pdb
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ReflectionApiPractices.genruntimeconfig.cache
+D:\ASPDotNet-jalaSir\ReflectionApi\ReflectionApiPractices\ReflectionApiPractices\obj\Debug\net7.0\ref\ReflectionApiPractices.dll
