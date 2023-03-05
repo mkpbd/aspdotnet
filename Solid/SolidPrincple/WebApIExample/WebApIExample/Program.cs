@@ -1,5 +1,7 @@
 
 using Microsoft.AspNetCore.Builder;
+using System.Security.Claims;
+using System.Xml.Linq;
 using WebApIExample.CustotomAPI;
 
 namespace WebApIExample
@@ -40,8 +42,17 @@ namespace WebApIExample
             app.MapGet("/hello", HelloHandler.Hello);
             app.MapGet("/user/{userNamae}/products/{id}", (string userName, int id) => $@"This User name {userName} and User Id {id}" );
             app.MapGet("/search", (string q) => { });
+            app.MapGet("/people", (int pageIndex, int itemsPerPage) => {
+                return $@"Page Index : {pageIndex} and Page Number = {itemsPerPage}";
+            });
+            app.MapGet("/people2", SearchMethod);
+
+            app.MapGet("/products", (HttpContext context, HttpRequest req, HttpResponse res, ClaimsPrincipal user) => { });
 
             app.Run();
         }
-    }
+
+
+       static string SearchMethod(int pageIndex = 0,
+            int itemsPerPage = 50) => $"Sample result for page {pageIndex } getting{itemsPerPage}elements"; }
 }
