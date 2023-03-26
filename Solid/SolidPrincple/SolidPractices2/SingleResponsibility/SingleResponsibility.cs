@@ -108,7 +108,6 @@ namespace SolidPractices2.SingleResponsibility
 
 
 
-
     }
 
 
