@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="OpenCloseResponsibility\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\AdoDotnetCrud\AdoDotnetCrud.csproj" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
 </Project>
