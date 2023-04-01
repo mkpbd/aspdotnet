@@ -11,7 +11,8 @@ namespace AdoDotnetCrud
 
             //SelectData.GetSelectDataFromStudent();
             //SelectData.DataSelectBySqlCommandObject();
-            SelectData.GetSelectDataRowByDataAdopter();
+            //SelectData.GetSelectDataRowByDataAdopter();
+            SelectData.GetDataFromSPByStoreProcedure();
 
             AdoNetInsertData adoNetInsertData = new AdoNetInsertData();
             //adoNetInsertData.InsertRecord();

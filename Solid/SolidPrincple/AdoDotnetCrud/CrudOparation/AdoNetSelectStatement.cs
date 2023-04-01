@@ -126,5 +126,22 @@ namespace AdoDotnetCrud.CrudOparation
 
 
 
+        public void GetDataFromSPByStoreProcedure()
+        {
+
+            SqlDataAdapter da = new SqlDataAdapter("spGetStudents", ConnectionsDB.Connection());
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine(row["Name"] + ",  " + row["Email"] + ",  " + row["Mobile"]);
+            }
+
+        }
+
+
+
     }
 }
