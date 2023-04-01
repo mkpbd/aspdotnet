@@ -4,8 +4,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AdoDotnetCrud.CrudOparation
@@ -143,6 +145,8 @@ namespace AdoDotnetCrud.CrudOparation
 
 
 
+
+
         // get Data from database by useing data Table
 
         public void GetDataByDataTable()
@@ -271,6 +275,50 @@ namespace AdoDotnetCrud.CrudOparation
                 //Console.WriteLine(row["Id"] + ",  " + row["CustomerId"] + ",  " + row["Amount"]);
                 //Accessing using integer index position as keys
                 Console.WriteLine(row[0] + ",  " + row[1] + ",  " + row[2]);
+            }
+        }
+
+
+
+        public void StoreProceduerBySqlCommand()
+        {
+
+            // Create the SqlCommand object by passing the stored procedure name and connection object as parameters
+            SqlCommand cmd = new SqlCommand("spGetStudents", ConnectionsDB.Connection())
+            {
+                //Specify the command type as Stored Procedure
+                CommandType = CommandType.StoredProcedure
+            };
+
+
+            /*  SqlCommand cmds = new SqlCommand()
+              {
+                  CommandText = "spGetStudents", //Specify the Stored procedure name
+                  Connection = ConnectionsDB.Connection(), //Specify the connection object where the stored procedure is going to execute
+                  CommandType = CommandType.StoredProcedure //Specify the command type as Stored Procedure
+              }; */
+
+
+
+
+
+
+
+
+
+            //Execute the command i.e. Executing the Stored Procedure using ExecuteReader method
+            //SqlDataReader requires an active and open connection
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            //Read the data from the SqlDataReader 
+            //Read() method will returns true as long as data is there in the SqlDataReader
+            while (sdr.Read())
+            {
+                //Accessing the data using the string key as index
+                Console.WriteLine(sdr["Id"] + ",  " + sdr["Name"] + ",  " + sdr["Email"] + ",  " + sdr["Mobile"]);
+
+                //Accessing the data using the integer index position as key
+                //Console.WriteLine(sdr[0] + ",  " + sdr[1] + ",  " + sdr[2] + ",  " + sdr[3]);
             }
         }
 
