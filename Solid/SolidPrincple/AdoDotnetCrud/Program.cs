@@ -10,7 +10,15 @@ namespace AdoDotnetCrud
             AdoNetSelectStatement SelectData = new AdoNetSelectStatement();
 
             //SelectData.GetSelectDataFromStudent();
-            SelectData.DataSelectBySqlCommandObject();
+            //SelectData.DataSelectBySqlCommandObject();
+            SelectData.GetSelectDataRowByDataAdopter();
+
+            AdoNetInsertData adoNetInsertData = new AdoNetInsertData();
+            //adoNetInsertData.InsertRecord();
+
+
+            AdoNetDeleteRecord  adoNetDeleteRecord = new AdoNetDeleteRecord();
+            //adoNetDeleteRecord.DeleteData();
         }
     }
 }
