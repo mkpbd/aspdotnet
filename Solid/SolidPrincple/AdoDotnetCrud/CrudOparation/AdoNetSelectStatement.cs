@@ -229,6 +229,53 @@ namespace AdoDotnetCrud.CrudOparation
         }
 
 
+
+        public void GetMultipleTableByUsingDataSet()
+        {
+
+            //We have written two Select Statements to return data from customers and orders table
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from customers; select * from orders", ConnectionsDB.Connection("ShoppingCartDB"));
+            DataSet dataSet = new DataSet();
+            //Data Table 1 will be customers data which is at Index Position 0
+            //Data Table 2 will be orders data which is at Index Position 1
+            dataAdapter.Fill(dataSet);
+
+            //   dataSet.Tables[0].TableName = "Customers";
+            //    dataSet.Tables[1].TableName = "Orders";
+
+
+
+
+            var data = dataSet;
+            // Fetching First Table Data i.e. Customers Data
+            Console.WriteLine("Table 1 Data");
+            //Accessing the Data Table from the DataSet using Integer Index Position
+
+            //  foreach (DataRow row in dataSet.Tables["Table"].Rows)
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                //Accessing using string column name as keys
+                Console.WriteLine(row["Id"] + ",  " + row["Name"] + ",  " + row["Mobile"]);
+                //Accessing using integer index position as keys
+                //Console.WriteLine(row[0] + ",  " + row[1] + ",  " + row[2]);
+            }
+            Console.WriteLine();
+            // Fetching Second Table Data i.e. Orders Data
+            Console.WriteLine("Table 2 Data");
+            //Accessing the Data Table from the DataSet using Integer Index Position
+
+            // foreach (DataRow row in dataSet.Tables["Table1"].Rows)
+            foreach (DataRow row in dataSet.Tables[1].Rows)
+            {
+                //Accessing using string column name as keys
+                //Console.WriteLine(row["Id"] + ",  " + row["CustomerId"] + ",  " + row["Amount"]);
+                //Accessing using integer index position as keys
+                Console.WriteLine(row[0] + ",  " + row[1] + ",  " + row[2]);
+            }
+        }
+
+
+
     }
 
 }

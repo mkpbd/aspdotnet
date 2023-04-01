@@ -15,7 +15,8 @@ namespace AdoDotnetCrud
             //SelectData.GetDataFromSPByStoreProcedure();
             //SelectData.GetDataByDataTable();
             //SelectData.ResultByGivingDataTable();
-            SelectData.GetDataByDataSet();
+            //SelectData.GetDataByDataSet();
+            SelectData.GetMultipleTableByUsingDataSet();
 
 
             AdoNetInsertData adoNetInsertData = new AdoNetInsertData();
