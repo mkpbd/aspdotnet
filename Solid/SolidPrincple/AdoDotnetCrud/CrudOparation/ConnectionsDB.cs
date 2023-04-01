@@ -9,13 +9,13 @@ namespace AdoDotnetCrud.CrudOparation
 {
     public class ConnectionsDB
     {
-        static string ConnectionString = "data source=SERVER\\MSSQLSERVER02; database=StudentDB; integrated security=SSPI";
+      
 
         //  string ConString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        public static SqlConnection Connection()
+        public static SqlConnection Connection(string dbName = "StudentDB")
         {
-
+             string ConnectionString = $"data source=SERVER\\MSSQLSERVER02; database={dbName}; integrated security=SSPI";
             SqlConnection conn = new SqlConnection(ConnectionString);
 
 

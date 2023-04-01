@@ -143,5 +143,93 @@ namespace AdoDotnetCrud.CrudOparation
 
 
 
+        // get Data from database by useing data Table
+
+        public void GetDataByDataTable()
+        {
+
+            SqlDataAdapter da = new SqlDataAdapter("select * from student", ConnectionsDB.Connection());
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine(row["Name"] + ",  " + row["Email"] + ",  " + row["Mobile"]);
+            }
+
+        }
+
+
+
+        public void ResultByGivingDataTable()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("select * from student", ConnectionsDB.Connection());
+            DataTable originalDataTable = new DataTable();
+            da.Fill(originalDataTable);
+            Console.WriteLine("Original Data Table : originalDataTable");
+            foreach (DataRow row in originalDataTable.Rows)
+            {
+                Console.WriteLine(row["Name"] + ",  " + row["Email"] + ",  " + row["Mobile"]);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Copy Data Table : copyDataTable");
+            DataTable copyDataTable = originalDataTable.Copy();
+            if (copyDataTable != null)
+            {
+                foreach (DataRow row in copyDataTable.Rows)
+                {
+                    Console.WriteLine(row["Name"] + ",  " + row["Email"] + ",  " + row["Mobile"]);
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Clone Data Table : cloneDataTable");
+            DataTable cloneDataTable = originalDataTable.Clone();
+            if (cloneDataTable.Rows.Count > 0)
+            {
+                foreach (DataRow row in cloneDataTable.Rows)
+                {
+                    Console.WriteLine(row["Name"] + ",  " + row["Email"] + ",  " + row["Mobile"]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("cloneDataTable is Empty");
+                Console.WriteLine("Adding Data to cloneDataTable");
+                cloneDataTable.Rows.Add(101, "Test1", "Test1@dotnettutorial.net", "1234567890");
+                cloneDataTable.Rows.Add(101, "Test2", "Test1@dotnettutorial.net", "1234567890");
+                foreach (DataRow row in cloneDataTable.Rows)
+                {
+                    Console.WriteLine(row["Name"] + ",  " + row["Email"] + ",  " + row["Mobile"]);
+                }
+            }
+
+        }
+
+
+
+
+        public void GetDataByDataSet()
+        {
+            //Create the SqlDataAdapter instance by specifying the command text and connection object
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from customers", ConnectionsDB.Connection("ShoppingCartDB"));
+            //Creating DataSet Object
+            DataSet dataSet = new DataSet();
+            //Filling the DataSet using the Fill Method of SqlDataAdapter object
+            //Here, we have not specified the data table name and the data table will be created at index position 0
+            dataAdapter.Fill(dataSet);
+            //Iterating through the DataSet 
+            //First fetch the Datatable from the dataset and then fetch the rows using the Rows property of Datatable
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                //Accessing the Data using the string column name as key
+                Console.WriteLine(row["Id"] + ",  " + row["Name"] + ",  " + row["Mobile"]);
+                //Accessing the Data using the integer index position as key
+                //Console.WriteLine(row["Id"] + ",  " + row["Name"] + ",  " + row["Mobile"]);
+            }
+        }
+
+
     }
+
 }
+
