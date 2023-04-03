@@ -1,10 +1,14 @@
-﻿namespace AdoNetBasic
+﻿using AdoNetBasic.Basic;
+
+namespace AdoNetBasic
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+           BasicCrudeOperations basicCrudeOperations = new BasicCrudeOperations();
+
+            basicCrudeOperations.DeleteDataFromTable();
         }
     }
 }

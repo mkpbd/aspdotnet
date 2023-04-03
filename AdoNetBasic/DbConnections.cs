@@ -12,7 +12,7 @@ namespace AdoNetBasic
 
         public static SqlConnection Connection()
         {
-            string connectionString = $"data source=SERVER\\MSSQLSERVER01; database=student; integrated security=SSPI";
+            string connectionString = $"data source=SERVER\\MSSQLSERVER01; database=AdoDotNet35Cookbook; integrated security=SSPI";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString);  
             sqlConnection.Open();
