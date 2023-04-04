@@ -116,13 +116,67 @@ namespace AdoNetBasic.Basic
             // Fill a DataSet using DataAdapter and output to console
             DataSet ds = new DataSet();
             da.Fill(ds, "Contact");
-            Console.WriteLine("\n---DataSet; DataTable count = {0}---",ds.Tables.Count);
+            Console.WriteLine("\n---DataSet; DataTable count = {0}---", ds.Tables.Count);
             Console.WriteLine("[TableName = {0}]", ds.Tables[0].TableName);
             foreach (DataRow row in ds.Tables["Contact"].Rows)
                 Console.WriteLine("{0} {1}", row[0], row[1]);
 
 
         }
+
+
+        public void RetrieveDataIntoDataTable2()
+        {
+
+            string sqlSelect = @"SELECT ContactID, FirstName, LastName FROM Person.Contact WHERE ContactID BETWEEN 10 AND 14";
+            // Create a data adapter
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlSelect, DbConnections.Connection());
+            // Fill a DataTable using DataAdapter and output to console
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            // Accessing rows using indexer
+            Console.WriteLine("---Index loop over DataRowCollection---");
+            for (int i = 0; i < 5; i++)
+            {
+                DataRow row = dt.Rows[i];
+                Console.WriteLine(@"Row = {0}\tContactID = {1}\tFirstName = {2} \tLastName = {3}", i, row[0], row["FirstName"], row[2, DataRowVersion.Default]);
+            }
+
+
+
+            // Accessing rows using foreach loop
+            Console.WriteLine("\n---foreach loop over DataRowCollection---");
+            int j = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                j++;
+                Console.WriteLine("Row = {0}\tContactID = {1}\tFirstName = {2} \tLastName = {3}", j, row[0], row["FirstName"], row["LastName", DataRowVersion.Default]);
+            }
+
+
+            // Accessing DataTable values directly
+            Console.WriteLine("\n---Accessing FirstName value in row 3 (ContactID = 12) directly---");
+            Console.WriteLine("FirstName = {0}", dt.Rows[2][1]);
+            Console.WriteLine("FirstName = {0}", dt.Rows[2]["FirstName"]);
+            Console.WriteLine("FirstName = {0}", dt.Rows[2]["FirstName", DataRowVersion.Default]);
+            Console.WriteLine("FirstName = {0}", dt.Rows[2][dt.Columns[1]]);
+            Console.WriteLine("FirstName = {0}", dt.Rows[2][dt.Columns["FirstName"]]);
+            Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>(1));
+            Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>("FirstName"));
+            Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>("FirstName", DataRowVersion.Default));
+            Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>(dt.Columns[1]));
+            Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>(dt.Columns["FirstName"]));
+
+
+
+
+
+
+        }
+
+
 
 
     }
