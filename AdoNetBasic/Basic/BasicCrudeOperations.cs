@@ -257,7 +257,7 @@ namespace AdoNetBasic.Basic
 
 
 
-     public void   NavigatingParentChildTables()
+        public void NavigatingParentChildTables()
         {
             string sqlSelect = @"SELECT * FROM Sales.SalesOrderHeader; SELECT * FROM Sales.SalesOrderDetail;";
 
@@ -299,6 +299,154 @@ namespace AdoNetBasic.Basic
                     rowDetail.GetParentRow(dr)["CustomerID"]);
                 }
             }
+
+
+
+
+        }
+
+        public void ExecutingParameterizedQuery()
+        {
+            string sqlSelect = "SELECT * FROM Sales.SalesOrderHeader " + "WHERE TotalDue > @TotalDue";
+
+
+            SqlCommand sqlCommand = new SqlCommand(sqlSelect, DbConnections.Connection());
+            // Add the TotalDue parameter to the command
+            sqlCommand.Parameters.Add("@TotalDue", SqlDbType.Money);
+            // Set the value of the TotalDue paramter
+            sqlCommand.Parameters["@TotalDue"].Value = 200000;
+            // Use a DataAdapter to retrieve the result set into a DataTable
+            SqlDataAdapter sqlDa = new SqlDataAdapter(sqlCommand);
+            DataTable sqlDt = new DataTable();
+            sqlDa.Fill(sqlDt);
+
+            foreach (DataRow row in sqlDt.Rows)
+            {
+                Console.WriteLine
+                ("SalesOrderID = {0}, OrderDate = {1}, TotalDue = {2}",
+                row["SalesOrderID"], row["OrderDate"], row["TotalDue"]);
+            }
+            Console.WriteLine();
+
+
+
+        }
+
+        public void RetreiveDataSqlServerStoredProcedure()
+        {
+
+            string sqlSelect = "uspGetEmployeeManagers";
+
+            // Create the store procedure command
+            SqlCommand command = new SqlCommand(sqlSelect, DbConnections.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            // Add the parameter and set its value to 100
+            command.Parameters.Add("@EmployeeID", SqlDbType.Int).Value = 100;
+            // Create a DataTable and fill it using the stored procedure
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            // Output the result set to the console
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine("[{0}] {1} {2}, {3} -> {4} {5}, {6}",
+                row["RecursionLevel"], row["EmployeeID"], row["LastName"],
+                row["FirstName"], row["ManagerID"], row["ManagerLastName"],
+                row["ManagerFirstName"]);
+            }
+        }
+
+
+
+        public void PassNullValueToStoredProcedureParameter()
+        {
+            bool isNullParameter;
+
+            // Create the stored procedure command.
+            SqlCommand command =
+            new SqlCommand("PassNullParameter", DbConnections.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            // Define the paramet
+
+            command.Parameters.Add("@ValueIn", SqlDbType.Int);
+            // Set the parameter value to 1 and execute the stored procedure
+            command.Parameters[0].Value = 1;
+            Console.WriteLine("Parameter value = 1");
+
+            isNullParameter = Convert.ToBoolean(command.ExecuteScalar());
+            Console.WriteLine(
+            "Input parameter is null = {0}", isNullParameter);
+            Console.WriteLine();
+
+            // Set the parameter value to null and execute the stored  procedure
+            // in a try...catch block
+            command.Parameters[0].Value = null;
+            Console.WriteLine("Parameter value = null");
+
+            try
+            {
+                isNullParameter = Convert.ToBoolean(command.ExecuteScalar));
+                Console.WriteLine(
+                "Input parameter is null = {0}", isNullParameter);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: {0}", ex.Message);
+            }
+            Console.WriteLine();
+            // Set the parameter value to System.DBNull.Value and execute the
+            // stored procedure
+            command.Parameters[0].Value = System.DBNull.Value;
+            Console.WriteLine("Parameter value = System.DBNull.Value");
+            isNullParameter = Convert.ToBoolean(command.ExecuteScalar()); "Input parameter is null = {0}", isNullParameter);
+            Console.WriteLine();
+        }
+
+
+        public void TableValuedParameter()
+        {
+
+            string sqlSelect = "SELECT * FROM TVPTable";
+            // Output the contents of the table in the database
+            SqlDataAdapter da = new SqlDataAdapter(sqlSelect, DbConnections.Connection());
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Console.WriteLine("---INITIAL---");
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine("ID = {0}\tField1 = {1}\tField2 = {2}", row["ID"], row["Field1"], row["Field2"]);
+            }
+            // Create the DataTable that will be used to pass a table
+            // into the table-valued parameter
+            DataTable dtTVP = new DataTable();
+            dtTVP.Columns.Add("Id", typeof(int));
+            dtTVP.Columns.Add("Field1", typeof(string)).MaxLength = 50;
+            dtTVP.Columns.Add("Field2", typeof(string)).MaxLength = 50;
+            // Add data to the DataTable
+            dtTVP.Rows.Add(new object[] { 1, "Field1.1", "Field2.1" });
+            dtTVP.Rows.Add(new object[] { 2, "Field1.2", "Field2.2" });
+            dtTVP.Rows.Add(new object[] { 3, "Field1.3", "Field2.3" });
+
+
+            SqlCommand command = new SqlCommand("InsertTVPTable", DbConnections.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = command.Parameters.AddWithValue("@tvp", dtTVP);
+            param.SqlDbType = SqlDbType.Structured;
+           
+            command.ExecuteNonQuery();
+           
+            Console.WriteLine("\n=> Stored procedure with TVP executed.");
+
+            // Output the contents of the table in the database
+            dt.Clear();
+            da.Fill(dt);
+            Console.WriteLine("\n---FINAL---");
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine("ID = {0}\tField1 = {1}\tField2 = {2}", row["ID"], row["Field1"], row["Field2"]);
+            }
+
 
 
         }
