@@ -1,5 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using AdoNetBasic.Models;
+using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Data.Common;
 
 namespace AdoNetBasic.Basic
 {
@@ -143,5 +145,163 @@ namespace AdoNetBasic.Basic
             Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>(dt.Columns[1]));
             Console.WriteLine("FirstName = {0}", dt.Rows[2].Field<string>(dt.Columns["FirstName"]));
         }
+
+
+        public void AccessValuesStronglyTypedDataSet()
+        {
+
+            string sqlSelect = "SELECT * FROM AccessTypedDSTable";
+
+            // Create an instance of the strongly typed DataSet
+            var atds = new AccessTypedDS();
+            // Create a DataAdapter to fill the DataSet
+            SqlDataAdapter da = new SqlDataAdapter(sqlSelect, DbConnections.Connection());
+
+            // Add a command builder
+            SqlCommandBuilder cb = new SqlCommandBuilder(da);
+            // Add table mapping
+            da.TableMappings.Add("Table", "AccessTypedDS");
+            // Fill the strongly typed DataSet
+            //  da.Fill(atds);
+        }
+
+
+
+        public void RetrieveHierarchicalDataSet()
+        {
+
+
+            string sqlSelectHeader = "SELECT * FROM Sales.SalesOrderHeader";
+            string sqlSelectDetail = "SELECT * FROM Sales.SalesOrderDetail";
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+
+            // Fill the Header table in the DataSet
+            da = new SqlDataAdapter(sqlSelectHeader, DbConnections.Connection());
+            da.FillSchema(ds, SchemaType.Source, "SalesOrderHeader");
+            da.Fill(ds, "SalesOrderHeader");
+
+            // Fill the Detail table in the DataSet
+            da = new SqlDataAdapter(sqlSelectDetail, DbConnections.Connection());
+            da.FillSchema(ds, SchemaType.Source, "SalesOrderDetail");
+            da.Fill(ds, "SalesOrderDetail");
+            // Relate the Header and Order tables in the DataSet
+            DataRelation dr = new
+            DataRelation("SalesOrderHeader_SalesOrderDetail",
+            ds.Tables["SalesOrderHeader"].Columns["SalesOrderID"],
+            ds.Tables["SalesOrderDetail"].Columns["SalesOrderID"]);
+            ds.Relations.Add(dr);
+
+            // Output fields from first three header rows with detail
+            for (int i = 0; i < 3; i++)
+            {
+                DataRow rowHeader = ds.Tables["SalesOrderHeader"].Rows[i];
+                Console.WriteLine(
+                "HEADER: OrderID = {0}, Date = {1}, TotalDue = {2}",
+                rowHeader["SalesOrderID"], rowHeader["OrderDate"],
+                rowHeader["TotalDue"]);
+                foreach (DataRow rowDetail in rowHeader.GetChildRows(dr))
+                {
+                    Console.WriteLine("\tDETAIL: OrderID = {0}, DetailID = {1}, "
+                    +
+                    "LineTotal = {2}",
+                    rowDetail["SalesOrderID"],
+                    rowDetail["SalesOrderDetailID"],
+                    rowDetail["LineTotal"]);
+                }
+            }
+
+        }
+
+
+
+
+        public void RetrieveHierarchicalDataSetBatch()
+        {
+
+            string sqlSelect = "SELECT * FROM Sales.SalesOrderHeader;" + "SELECT * FROM Sales.SalesOrderDetail";
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+            // Fill the DataSet with Header and Detail,
+            // mapping the default table names
+            da = new SqlDataAdapter(sqlSelect, DbConnections.Connection());
+            da.TableMappings.Add("Table", "SalesOrderHeader");
+            da.TableMappings.Add("Table1", "SalesOrderDetail");
+            da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            da.Fill(ds);
+
+            // Relate the Header and Order tables in the DataSet
+            DataRelation dr = new
+            DataRelation("SalesOrderHeader_SalesOrderDetail",
+            ds.Tables["SalesOrderHeader"].Columns["SalesOrderID"],
+            ds.Tables["SalesOrderDetail"].Columns["SalesOrderID"]);
+            ds.Relations.Add(dr);
+            // Output fields from first three header rows with detail
+            for (int i = 0; i < 3; i++)
+            {
+                DataRow rowHeader = ds.Tables["SalesOrderHeader"].Rows[i];
+                Console.WriteLine(
+                "HEADER: OrderID = {0}, Date = {1}, TotalDue = {2}",
+                rowHeader["SalesOrderID"], rowHeader["OrderDate"],
+                rowHeader["TotalDue"]);
+                foreach (DataRow rowDetail in rowHeader.GetChildRows(dr))
+                {
+                    Console.WriteLine(
+                    "\tDETAIL: OrderID = {0}, DetailID = {1}, " +
+                    "LineTotal = {2}", rowDetail["SalesOrderID"],
+                    rowDetail["SalesOrderDetailID"], rowDetail["LineTotal"]);
+                }
+            }
+
+        }
+
+
+
+     public void   NavigatingParentChildTables()
+        {
+            string sqlSelect = @"SELECT * FROM Sales.SalesOrderHeader; SELECT * FROM Sales.SalesOrderDetail;";
+
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+            // Fill the Header and Detail table in the DataSet
+            da = new SqlDataAdapter(sqlSelect, DbConnections.Connection());
+            da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            da.TableMappings.Add("Table", "SalesOrderHeader");
+            da.TableMappings.Add("Table1", "SalesOrderDetail");
+            da.Fill(ds);
+
+
+            // Relate the Header and Order tables in the DataSet
+            DataRelation dr = new
+            DataRelation("SalesOrderHeader_SalesOrderDetail",
+            ds.Tables["SalesOrderHeader"].Columns["SalesOrderID"],
+            ds.Tables["SalesOrderDetail"].Columns["SalesOrderID"]);
+            ds.Relations.Add(dr);
+
+
+            // Iterate over the first two header rows
+            for (int i = 0; i < 2; i++)
+            {
+                // Display data from the SalesOrderHeader record
+                DataRow rowHeader = ds.Tables["SalesOrderHeader"].Rows[i];
+                Console.WriteLine("HEADER: OrderID = {0}, CustomerID = {1}",
+                rowHeader["SalesOrderID"], rowHeader["CustomerID"]);
+                // Iterate over the SalesOrderDetail records for the
+                // SalesOrderHeader
+                foreach (DataRow rowDetail in rowHeader.GetChildRows(dr))
+                {
+                    Console.WriteLine("\tDETAIL: OrderID = {0}, DetailID = {1}, "
+                    +
+                    "CustomerID = {3}",
+                    rowDetail["SalesOrderID"],
+                    rowDetail["SalesOrderDetailID"],
+                    rowDetail["LineTotal"],
+                    rowDetail.GetParentRow(dr)["CustomerID"]);
+                }
+            }
+
+
+        }
+
     }
 }
