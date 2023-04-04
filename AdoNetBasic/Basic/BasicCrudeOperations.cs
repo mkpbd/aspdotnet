@@ -385,9 +385,8 @@ namespace AdoNetBasic.Basic
 
             try
             {
-                isNullParameter = Convert.ToBoolean(command.ExecuteScalar));
-                Console.WriteLine(
-                "Input parameter is null = {0}", isNullParameter);
+                isNullParameter = Convert.ToBoolean(command.ExecuteScalar());
+                Console.WriteLine( "Input parameter is null = {0}", isNullParameter);
             }
             catch (Exception ex)
             {
@@ -398,8 +397,8 @@ namespace AdoNetBasic.Basic
             // stored procedure
             command.Parameters[0].Value = System.DBNull.Value;
             Console.WriteLine("Parameter value = System.DBNull.Value");
-            isNullParameter = Convert.ToBoolean(command.ExecuteScalar()); "Input parameter is null = {0}", isNullParameter);
-            Console.WriteLine();
+            isNullParameter = Convert.ToBoolean(command.ExecuteScalar());
+            Console.WriteLine("Input parameter is null = {0}", isNullParameter);
         }
 
 
@@ -433,9 +432,9 @@ namespace AdoNetBasic.Basic
             command.CommandType = CommandType.StoredProcedure;
             SqlParameter param = command.Parameters.AddWithValue("@tvp", dtTVP);
             param.SqlDbType = SqlDbType.Structured;
-           
+
             command.ExecuteNonQuery();
-           
+
             Console.WriteLine("\n=> Stored procedure with TVP executed.");
 
             // Output the contents of the table in the database
@@ -448,6 +447,82 @@ namespace AdoNetBasic.Basic
             }
 
 
+
+        }
+
+        public void StoredProcedureReturnValueDataReader()
+        {
+
+            // Create the stored procedure to use in the DataReader.
+            SqlCommand command =
+            new SqlCommand("Person.GetContacts", DbConnections.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            // Create the output parameter
+            command.Parameters.Add("@RowCount", SqlDbType.Int).Direction =
+            ParameterDirection.Output;
+            // Create the return parameter
+            SqlParameter retParam =
+            command.Parameters.Add("@RetVal", SqlDbType.Int);
+            retParam.Direction = ParameterDirection.ReturnValue;
+
+            Console.WriteLine("Before execution, return value = {0}", retParam.Value);
+            // Create a DataReader for the result set returned by
+            // the stored procedure.
+
+            SqlDataReader dr = command.ExecuteReader();
+            Console.WriteLine(
+            "After execution, return value = {0}", retParam.Value);
+            // Iterate over the records for the DataReader.
+            int rowCount = 0;
+            while (dr.Read())
+            {
+                rowCount++;
+                // Code to process result set in DataReader.
+            }
+
+            Console.WriteLine("After reading all {0} rows, return value = {1}",rowCount, retParam.Value);
+            // Close the DataReader
+            dr.Close();
+            Console.WriteLine( "After DataReader.Close( ), return value = {0}", retParam.Value);
+            
+            Console.WriteLine( "After Connection.Close( ), return value = {0}",retParam.Value);
+
+
+        }
+
+
+        public void StoredProcedureOutputValueDataReader()
+        {
+
+            // Create the stored procedure to use in the DataReader.
+            SqlCommand command = new SqlCommand("Person.GetContacts", DbConnections.Connection());
+            command.CommandType = CommandType.StoredProcedure;
+            // Create the output parameter
+            command.Parameters.Add("@RowCount", SqlDbType.Int).Direction =
+            ParameterDirection.Output;
+            Console.WriteLine("Before execution, @RowCount = {0}",
+            command.Parameters["@RowCount"].Value);
+            // Create a DataReader for the result set returned by
+     
+            SqlDataReader dr = command.ExecuteReader();
+            Console.WriteLine("After execution, @RowCount = {0}",
+            command.Parameters["@RowCount"].Value);
+            // Iterate over the records for the DataReader.
+
+            int rowCount = 0;
+            while (dr.Read())
+            {
+                rowCount++;
+                // Code to process result set in DataReader.
+            }
+            Console.WriteLine("After reading all {0} rows, @RowCount = {1}", rowCount, command.Parameters["@RowCount"].Value);
+            // Close the DataReader
+            dr.Close();
+            Console.WriteLine("After DataReader.Close( ), @RowCount = {0}",
+            command.Parameters["@RowCount"].Value);
+       
+            Console.WriteLine("After Connection.Close(), @RowCount = {0}",
+            command.Parameters["@RowCount"].Value);
 
         }
 
