@@ -1,6 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Data.SqlClient;
 
 namespace AdoNetBasic.Basic
 {
@@ -389,7 +389,7 @@ namespace AdoNetBasic.Basic
             Console.WriteLine("---INITIAL---");
             foreach (DataRow row in dt.Rows)
             {
-                Console.WriteLine("ID = {0}\tField1 = {1}\tField2 = {2}",row["ID"], row["Field1"], row["Field2"]);
+                Console.WriteLine("ID = {0}\tField1 = {1}\tField2 = {2}", row["ID"], row["Field1"], row["Field2"]);
             }
             // Create the DataTable that will be used to pass a table
             // into the table-valued parameter
@@ -418,7 +418,7 @@ namespace AdoNetBasic.Basic
             Console.WriteLine("\n---FINAL---");
             foreach (DataRow row in dt.Rows)
             {
-                Console.WriteLine("ID = {0}\tField1 = {1}\tField2 = {2}",row["ID"], row["Field1"], row["Field2"]);
+                Console.WriteLine("ID = {0}\tField1 = {1}\tField2 = {2}", row["ID"], row["Field1"], row["Field2"]);
             }
 
 
@@ -428,7 +428,7 @@ namespace AdoNetBasic.Basic
         public void StoredProcedureReturnValueDataReader()
         {
 
-            string sqlConnectString = "Data Source=(local);" +"Integrated security=SSPI;Initial Catalog=AdventureWorks;";
+            string sqlConnectString = "Data Source=(local);" + "Integrated security=SSPI;Initial Catalog=AdventureWorks;";
 
             using (SqlConnection connection = new SqlConnection(sqlConnectString))
             {
@@ -458,12 +458,12 @@ namespace AdoNetBasic.Basic
                     rowCount++;
                     // Code to process result set in DataReader.
                 }
-                Console.WriteLine("After reading all {0} rows, return value = {1}",rowCount, retParam.Value);
+                Console.WriteLine("After reading all {0} rows, return value = {1}", rowCount, retParam.Value);
                 // Close the DataReader
                 dr.Close();
-                Console.WriteLine(  "After DataReader.Close( ), return value = {0}",  retParam.Value);
+                Console.WriteLine("After DataReader.Close( ), return value = {0}", retParam.Value);
                 connection.Close();
-                Console.WriteLine(  "After Connection.Close( ), return value = {0}", retParam.Value);
+                Console.WriteLine("After Connection.Close( ), return value = {0}", retParam.Value);
             }
 
 
@@ -517,7 +517,7 @@ namespace AdoNetBasic.Basic
                     rowCount++;
                     // Code to process result set in DataReader.
                 }
-          //      Console.WriteLine("After reading all {0} rows, @RowCount = {1}",(g { } , @{ } ,rowCount, command.Parameters["@RowCount"].Value);
+                //      Console.WriteLine("After reading all {0} rows, @RowCount = {1}",(g { } , @{ } ,rowCount, command.Parameters["@RowCount"].Value);
                 // Close the DataReader
                 dr.Close();
                 Console.WriteLine("After DataReader.Close( ), @RowCount = {0}",
@@ -534,11 +534,11 @@ namespace AdoNetBasic.Basic
 
         public void RaiseAndHandleStoredProcedureError()
         {
-            string sqlConnectString = "Data Source=(local);" +"Integrated security=SSPI;Initial Catalog=AdventureWorks;";
+            string sqlConnectString = "Data Source=(local);" + "Integrated security=SSPI;Initial Catalog=AdventureWorks;";
             using (SqlConnection connection = new SqlConnection(sqlConnectString))
             {
                 // Attach handler for SqlInfoMessage events.
-              //  connection.InfoMessage += new SqlInfoMessageEventHandler(SqlMessageEventHandler);
+                //  connection.InfoMessage += new SqlInfoMessageEventHandler(SqlMessageEventHandler);
                 // Create the stored procedure
                 SqlCommand command = new SqlCommand("RaiseError", connection);
                 command.CommandType = CommandType.StoredProcedure;
@@ -584,8 +584,8 @@ namespace AdoNetBasic.Basic
         public void ExecuteUserDefinedScalarValuedFunction()
         {
 
-            string sqlConnectString = "Data Source=(local);" +"Integrated security=SSPI;Initial Catalog=AdventureWorks;";
-            string sqlSelect = "SELECT TOP 5 *, " + "dbo.ExtendedPrice(UnitPrice, OrderQty, UnitPriceDiscount) " +  "ExtendedPrice FROM Sales.SalesOrderDetail";
+            string sqlConnectString = "Data Source=(local);" + "Integrated security=SSPI;Initial Catalog=AdventureWorks;";
+            string sqlSelect = "SELECT TOP 5 *, " + "dbo.ExtendedPrice(UnitPrice, OrderQty, UnitPriceDiscount) " + "ExtendedPrice FROM Sales.SalesOrderDetail";
             SqlDataAdapter da = new SqlDataAdapter(sqlSelect, sqlConnectString);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -601,7 +601,7 @@ namespace AdoNetBasic.Basic
 
         public void ExecuteTableValuedFunction()
         {
-            string sqlConnectString = "Data Source=(local);" +"Integrated security=SSPI;Initial Catalog=AdventureWorks;";
+            string sqlConnectString = "Data Source=(local);" + "Integrated security=SSPI;Initial Catalog=AdventureWorks;";
             // Select all fields from all records returned by the
             // table-valued function for ContactID = 10.
             string sqlSelect = "SELECT * FROM dbo.ufnGetContactInformation(10)";

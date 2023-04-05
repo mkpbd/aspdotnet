@@ -1,11 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
+﻿
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AdoNetBasic.Chapter4
 {
@@ -634,13 +631,13 @@ namespace AdoNetBasic.Chapter4
 
         public void RetrieveUnpivotTable()
         {
-            string sqlConnectString = "Data Source=(local);" +"Integrated security=SSPI;Initial Catalog=AdventureWorks;";
+            string sqlConnectString = "Data Source=(local);" + "Integrated security=SSPI;Initial Catalog=AdventureWorks;";
             string sqlSelect = "SELECT EmployeeID, OrderYear, TotalDue FROM " +
             "(SELECT EmployeeID, [2002] Y2002, " +
             "[2003] Y2003, [2004] Y2004 FROM " +
             "(SELECT YEAR(OrderDate) OrderYear, EmployeeID, TotalDue " +
             "FROM Purchasing.PurchaseOrderHeader) poh " +
-            "PIVOT (SUM(TotalDue) FOR OrderYear IN " +"([2002], [2003], [2004])) pvt " +"WHERE EmployeeID BETWEEN 200 AND 300) pvtTable " +"UNPIVOT " +"(TotalDue FOR OrderYear IN (Y2002, Y2003, Y2004)) unpvt " +"ORDER BY EmployeeID, OrderYear";
+            "PIVOT (SUM(TotalDue) FOR OrderYear IN " + "([2002], [2003], [2004])) pvt " + "WHERE EmployeeID BETWEEN 200 AND 300) pvtTable " + "UNPIVOT " + "(TotalDue FOR OrderYear IN (Y2002, Y2003, Y2004)) unpvt " + "ORDER BY EmployeeID, OrderYear";
             // Fill the DataTable
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sqlSelect, sqlConnectString);
@@ -655,7 +652,7 @@ namespace AdoNetBasic.Chapter4
 
         public void InvokeFunctionForEachRowResultSet()
         {
-            string sqlConnectString = "Data Source=(local);" +"Integrated security=SSPI;Initial Catalog=AdventureWorks;";
+            string sqlConnectString = "Data Source=(local);" + "Integrated security=SSPI;Initial Catalog=AdventureWorks;";
             string sqlSelect = "SELECT e.ContactID, " +
             "c.FirstName, c.LastName, c.JobTitle, c.ContactType " +
             "FROM HumanResources.Employee e " +

@@ -1,7 +1,7 @@
 ﻿using AdoNetBasic.Models;
-using Microsoft.Data.SqlClient;
+
 using System.Data;
-using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace AdoNetBasic.Basic
 {
@@ -386,7 +386,7 @@ namespace AdoNetBasic.Basic
             try
             {
                 isNullParameter = Convert.ToBoolean(command.ExecuteScalar());
-                Console.WriteLine( "Input parameter is null = {0}", isNullParameter);
+                Console.WriteLine("Input parameter is null = {0}", isNullParameter);
             }
             catch (Exception ex)
             {
@@ -480,12 +480,12 @@ namespace AdoNetBasic.Basic
                 // Code to process result set in DataReader.
             }
 
-            Console.WriteLine("After reading all {0} rows, return value = {1}",rowCount, retParam.Value);
+            Console.WriteLine("After reading all {0} rows, return value = {1}", rowCount, retParam.Value);
             // Close the DataReader
             dr.Close();
-            Console.WriteLine( "After DataReader.Close( ), return value = {0}", retParam.Value);
-            
-            Console.WriteLine( "After Connection.Close( ), return value = {0}",retParam.Value);
+            Console.WriteLine("After DataReader.Close( ), return value = {0}", retParam.Value);
+
+            Console.WriteLine("After Connection.Close( ), return value = {0}", retParam.Value);
 
 
         }
@@ -503,7 +503,7 @@ namespace AdoNetBasic.Basic
             Console.WriteLine("Before execution, @RowCount = {0}",
             command.Parameters["@RowCount"].Value);
             // Create a DataReader for the result set returned by
-     
+
             SqlDataReader dr = command.ExecuteReader();
             Console.WriteLine("After execution, @RowCount = {0}",
             command.Parameters["@RowCount"].Value);
@@ -520,7 +520,7 @@ namespace AdoNetBasic.Basic
             dr.Close();
             Console.WriteLine("After DataReader.Close( ), @RowCount = {0}",
             command.Parameters["@RowCount"].Value);
-       
+
             Console.WriteLine("After Connection.Close(), @RowCount = {0}",
             command.Parameters["@RowCount"].Value);
 

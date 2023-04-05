@@ -6,7 +6,7 @@ namespace AdoNetBasic
     {
         static void Main(string[] args)
         {
-           BasicCrudeOperations basicCrudeOperations = new BasicCrudeOperations();
+            BasicCrudeOperations basicCrudeOperations = new BasicCrudeOperations();
 
             basicCrudeOperations.DeleteDataFromTable();
         }
