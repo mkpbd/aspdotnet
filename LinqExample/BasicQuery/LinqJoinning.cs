@@ -1,13 +1,6 @@
-﻿using Model.Models;
-using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Model;
+using Model.Models;
 using System.Globalization;
-using System.Collections;
-using System.Reflection;
 
 namespace LinqExample.BasicQuery
 {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdoNetBasic.Models
+﻿namespace AdoNetBasic.Models
 {
     public class AccessTypedDS
     {
@@ -13,7 +7,7 @@ namespace AdoNetBasic.Models
         public string Description { get; set; }
         public string Type { get; set; }
         public string TypeDescription { get; set; }
-        
+
 
     }
 }
