@@ -10,7 +10,7 @@ namespace AdoDotnetTutorials
 {
     public class DbSqlConnection
     {
-         static string ConString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+      //   static string ConString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public static SqlConnection Connecting(string dbName = "StudentDB")
         {
             string ConnectionString = $"data source=SERVER\\MSSQLSERVER02; database={dbName}; integrated security=SSPI";
