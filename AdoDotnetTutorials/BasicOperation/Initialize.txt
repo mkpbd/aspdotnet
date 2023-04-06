@@ -1,0 +1,23 @@
+﻿1.	Connect to the Database
+2.	Prepare an SQL Command
+3.	Execute the Command
+Retrieve the results and display them in the application
+And this is possible with the help of .NET Data Providers.
+
+
+The point that you need to remember is depending on the provider, the ADO.NET objects (Connection, Command, DataReader, and DataAdapter) have a different prefix as shown below.
+
+1. Connection – SQLConnection, OracleConnection, OleDbConnection, OdbcConnection, etc.
+2. Command – SQLCommand, OracleCommand, OleDbCommand, OdbcCommand, etc.
+3. DataReader – SQLDataReader, OracleDataReader, OleDbDataReader, OdbcDataReader, etc.
+4. DataAdapter – SQLDataAdapter, OracleDataAdapter, OleDbDataAdapter, OdbcDataAdapter, etc.
+
+DataSet:
+The DataSet object in ADO.NET is not Provider-Specific. Once you connect to a database, execute the command, and retrieve the data into the .NET application. 
+The data can then be stored in a DataSet and work independently of the database. So, it is used to access data independently from any data source. 
+The DataSet contains a collection of one or more DataTable objects.
+
+
+
+--------------------- Establish a connection to SQL Server database and create a table using ADO.NET -------------------------------
+
