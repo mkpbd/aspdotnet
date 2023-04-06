@@ -148,3 +148,52 @@ ColumnName: This property is used to get or set the name of the column.
 Expression: This property is used to get or set the expression used to filter rows, calculate the values in a column, or create an aggregate column.
 MaxLength: This property is used to get or set the maximum length of a text column.
 Unique: This property is used to get or set a value that indicates whether the values in each row of the column must be unique.
+
+
+============================= What is ADO.NET DataSet in C#? =============================
+What is ADO.NET DataSet in C#?
+The DataSet represents a subset of the database in memory. That means the ADO.NET DataSet is a collection of data tables that contains the relational data in memory in tabular format.
+
+It does not require a continuous open or active connection to the database. The DataSet is based on the disconnected architecture. This is the reason why it is used to fetch the data without interacting with any data source. We will discuss the disconnected architecture of the data set in our upcoming articles.
+
+Note: The ADO.NET DataSet class is the core component for providing data access in a distributed and disconnected environment. The ADO.NET DataSet class belongs to the System.Data namespace.
+
+Signature of DataSet in C#:
+The signature of the DataSet class is shown in the below image.
+
+
+
+
+
+DataSet(): It initializes a new instance of the System.Data.DataSet class..
+DataSet(string dataSetName): It initializes a new instance of a System.Data.DataSet class with the given name. Here, the string parameter dataSetName specifies the name of the System.Data.DataSet.
+DataSet(SerializationInfo info, StreamingContext context): It initializes a new instance of a System.Data.DataSet class that has the given serialization information and context. Here, the parameter info is the data needed to serialize or deserialize an object. The context specifies the source and destination of a given serialized stream.
+DataSet(SerializationInfo info, StreamingContext context, bool ConstructSchema): It initializes a new instance of the System.Data.DataSet class.
+
+
+================== Properties of DataSet in C#: ==========================
+
+CaseSensitive: It is used to get or set a value indicating whether string comparisons within System.Data.DataTable objects are case-sensitive. It returns true if string comparisons are case-sensitive; otherwise false. The default is false.
+DefaultViewManager: It is used to get a custom view of the data contained in the System.Data.DataSet to allow filtering, searching, and navigating using a custom System.Data.DataViewManager.
+DataSetName: It is used to get or set the name of the current System.Data.DataSet.
+EnforceConstraints: It is used to get or set a value indicating whether constraint rules are followed when attempting any update operation.
+HasErrors: It is used to get a value indicating whether there are errors in any of the System.Data.DataTable objects within this System.Data.DataSet.
+IsInitialized: It is used to get a value that indicates whether the System.Data.DataSet is initialized. It returns true to indicate the component has completed initialization; otherwise false.
+Prefix: It is used to get or set an XML prefix that aliases the namespace of the System.Data.DataSet.
+Locale: It is used to get or set the locale information used to compare strings within the table.
+Namespace: It is used to get or set the namespace of the System.Data.DataSet.
+Site: It is used to get or set up a System.ComponentModel.ISite for the System.Data.DataSet.
+Relations: It is used to get the collection of relations that link tables and allow navigation from parent tables to child tables.
+Tables: It is used to get the collection of tables contained in the System.Data.DataSet.
+
+======================= Methods of ADO.NET DataSet Class: ===============================
+
+BeginInit(): It Begins the initialization of a System.Data.DataSet that is used on a form or used by another component. The initialization occurs at run time.
+Clear(): It Clears the System.Data.DataSet of any data by removing all rows in all tables.
+Clone(): It Copies the structure of the System.Data.DataSet, including all System.Data.DataTable schemas, relations, and constraints. Do not copy any data.
+Copy(): It Copies both the structure and data for this System.Data.DataSet.
+CreateDataReader(): It Returns a System.Data.DataTableReader with one result set per System.Data.DataTable, in the same sequence as the tables, appears in the System.Data.DataSet.Tables collection.
+CreateDataReader(params DataTable[] dataTables): It returns a System.Data.DataTableReader with one result set per System.Data.DataTable. Here, the parameter dataTables specifies an array of DataTables providing the order of the result sets to be returned in the System.Data.DataTableReader
+EndInit(): It Ends the initialization of a System.Data.DataSet that is used on a form or used by another component. The initialization occurs at run time.
+GetXml(): It Returns the XML representation of the data stored in the System.Data.DataSet.
+GetXmlSchema(): It Returns the XML Schema for the XML representation of the data stored in the System.Data.DataSet.
