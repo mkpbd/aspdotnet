@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
@@ -15,28 +16,26 @@ namespace RepositoryPattern
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-    
+
 
 
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             var migrationAssembly = Assembly.GetExecutingAssembly().FullName;
 
-           // builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+            builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
             builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
             {
-                containerBuilder.RegisterModule(new ApplicationModule(connectionString,
-                    migrationAssembly));
-             
+                containerBuilder.RegisterModule(new ApplicationModule(connectionString, migrationAssembly));
+
             });
 
             // Add services to the container.
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString,
+            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString,
                 (x) => x.MigrationsAssembly(migrationAssembly)));
 
-        //    builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddControllersWithViews();
 

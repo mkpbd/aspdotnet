@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using RepositoryPattern.Interfaces;
 using RepositoryPattern.Models.Employee;
+using RepositoryPattern.Service;
 
 namespace RepositoryPattern
 {
@@ -15,10 +17,10 @@ namespace RepositoryPattern
             _migrationAssemblyName = migrationAssemblyName;
         }
 
-        //protected override void Load(ContainerBuilder builder)
-        //{
-        //    builder.RegisterType<Employee>().As<ICourseService>()
-        //        .InstancePerLifetimeScope();
-        //}
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<EmployeeServices>().As<IEmployeeServices>()
+                .InstancePerLifetimeScope();
+        }
     }
 }
