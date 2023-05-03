@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DDDGroupStudy.Web.props" />
+</Project>
