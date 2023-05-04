@@ -31,8 +31,8 @@ namespace DDDunitOfWork
                 .WithParameter("migrationAssembly", _migrationAssemblyName)
                 .InstancePerLifetimeScope();
 
-            //builder.RegisterType<ApplicationUnitOfWork>().As<IApplicationUnitOfWork>()
-            //    .InstancePerLifetimeScope();
+            builder.RegisterType<PersonRepository>().As<IPersonRepository>()
+                .InstancePerLifetimeScope();
         }
     }
 }

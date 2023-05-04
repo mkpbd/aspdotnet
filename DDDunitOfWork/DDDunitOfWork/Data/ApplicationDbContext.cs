@@ -30,5 +30,6 @@ namespace DDDunitOfWork.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Person> People { get; set; }
     }
 }

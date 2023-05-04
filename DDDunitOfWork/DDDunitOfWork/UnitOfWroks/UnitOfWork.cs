@@ -14,6 +14,7 @@ namespace DDDunitOfWork.UnitOfWroks
 
         }
         public IEmployeeRepository EmployeeRepository => new EmployeeRepository(_applicationDbContext);
+        public IPersonRepository PersonRepository => new PersonRepository(_applicationDbContext);
 
         public void Save()
         {

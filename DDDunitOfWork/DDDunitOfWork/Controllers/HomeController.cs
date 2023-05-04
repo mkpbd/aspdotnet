@@ -19,14 +19,25 @@ namespace DDDunitOfWork.Controllers
         public IActionResult Index()
         {
             Employee employee = new Employee()
-            {
-                Name = "jamal",
+            { Name = "ffff",
                 Address = "gazipur",
                 Email = "abc@gmail.com",
                 Phone = "34341234132"
 
             };
+
+            Person person = new Person()
+            {
+                Name = "a",
+                Address = "bbbb",
+                City = "cccc"
+
+
+            };
+
             _unitOfWork.EmployeeRepository.Add(employee);
+            _unitOfWork.PersonRepository.Add(person);
+
             _unitOfWork.Save();
 
            var rr =  _unitOfWork.EmployeeRepository.GetAll();
