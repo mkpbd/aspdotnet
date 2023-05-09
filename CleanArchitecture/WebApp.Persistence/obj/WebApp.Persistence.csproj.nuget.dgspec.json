@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj": {}
+    "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj": {}
   },
   "projects": {
-    "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj": {
+    "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj",
+        "projectUniqueName": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj",
         "projectName": "WebApp.Application",
-        "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj",
-        "packagesPath": "C:\\Users\\Mostofa kamal\\.nuget\\packages\\",
-        "outputPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\obj\\",
+        "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj",
+        "packagesPath": "C:\\Users\\MOSTOFA KAMAL\\.nuget\\packages\\",
+        "outputPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Mostofa kamal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\MOSTOFA KAMAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,15 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj": {
-                "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj"
+              "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj": {
+                "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj"
               }
             }
           }
@@ -78,21 +73,17 @@
         }
       }
     },
-    "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj": {
+    "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj",
+        "projectUniqueName": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj",
         "projectName": "WebApp.Domin",
-        "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj",
-        "packagesPath": "C:\\Users\\Mostofa kamal\\.nuget\\packages\\",
-        "outputPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\obj\\",
+        "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj",
+        "packagesPath": "C:\\Users\\MOSTOFA KAMAL\\.nuget\\packages\\",
+        "outputPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Mostofa kamal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\MOSTOFA KAMAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,7 +91,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -138,21 +128,17 @@
         }
       }
     },
-    "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj": {
+    "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj",
+        "projectUniqueName": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj",
         "projectName": "WebApp.Persistence",
-        "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj",
-        "packagesPath": "C:\\Users\\Mostofa kamal\\.nuget\\packages\\",
-        "outputPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\obj\\",
+        "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj",
+        "packagesPath": "C:\\Users\\MOSTOFA KAMAL\\.nuget\\packages\\",
+        "outputPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Mostofa kamal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\MOSTOFA KAMAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -160,18 +146,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj": {
-                "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj"
+              "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj": {
+                "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj"
               },
-              "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj": {
-                "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj"
+              "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj": {
+                "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj"
               }
             }
           }

@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using WebApp.Application.Features.Traning.Repository;
+using WebApp.Persistence.Fetures.Repository;
 
 namespace WebApp.Persistence
 {
@@ -32,6 +33,13 @@ namespace WebApp.Persistence
             builder.RegisterType<ApplicationDbContext>().AsSelf().WithParameter("connectionString", _connectionString)
                 .WithParameter("migrationAssembly", _migrationAssemblyName)
                 .InstancePerLifetimeScope();
+
+             builder.RegisterType<CourseRepository>().As<ICourseRepository>().WithParameter("connectionString",_connectionString)
+                .WithParameter("migrationAssembly", _migrationAssemblyName)
+                .InstancePerLifetimeScope();
+
+
+
         }
 
 

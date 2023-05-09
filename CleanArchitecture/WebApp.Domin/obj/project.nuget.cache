@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9zY7p+9C6/OkQcm+jLTMvz6scrj++HQvMcey2nGap56AXo8HMIBGxK9bfA3PNjrHZ+MzcYuFX061iHXyvleFpA==",
+  "dgSpecHash": "agHslaZTKIDfdvUph+oVoCCWCdT0sGhMjVFpzJ9Tqy1/hGf4LHt+Sj6FSVJLX6LHx+y2Kp3iiDDCjzWJdYkicA==",
   "success": true,
-  "projectFilePath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj",
+  "projectFilePath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Domin\\WebApp.Domin.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

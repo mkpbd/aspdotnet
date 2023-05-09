@@ -11304,24 +11304,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mostofa kamal\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\MOSTOFA KAMAL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp\\WebApp.csproj",
+      "projectUniqueName": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp\\WebApp.csproj",
       "projectName": "WebApp",
-      "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp\\WebApp.csproj",
-      "packagesPath": "C:\\Users\\Mostofa kamal\\.nuget\\packages\\",
-      "outputPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp\\obj\\",
+      "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp\\WebApp.csproj",
+      "packagesPath": "C:\\Users\\MOSTOFA KAMAL\\.nuget\\packages\\",
+      "outputPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Mostofa kamal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\MOSTOFA KAMAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11329,18 +11324,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj": {
-              "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj"
+            "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj": {
+              "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Application\\WebApp.Application.csproj"
             },
-            "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj": {
-              "projectPath": "F:\\Jallal\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj"
+            "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj": {
+              "projectPath": "D:\\ASPDotNet-jalaSir\\aspdotnet\\CleanArchitecture\\WebApp.Persistence\\WebApp.Persistence.csproj"
             }
           }
         }

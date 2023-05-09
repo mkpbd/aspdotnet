@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using WebApp.Models;
 
 namespace WebApp
 {
@@ -17,7 +18,7 @@ namespace WebApp
 
         protected override void Load(ContainerBuilder builder)
         {
-
+            builder.RegisterType<CourseListModel>().AsSelf().InstancePerLifetimeScope();
         }
     }
 }

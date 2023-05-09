@@ -1,0 +1,12 @@
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\bin\Debug\net7.0\WebApp.Insfarstructer.deps.json
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\bin\Debug\net7.0\WebApp.Insfarstructer.dll
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\bin\Debug\net7.0\WebApp.Insfarstructer.pdb
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.csproj.AssemblyReference.cache
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.AssemblyInfoInputs.cache
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.AssemblyInfo.cs
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.csproj.CoreCompileInputs.cache
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.dll
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\refint\WebApp.Insfarstructer.dll
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\WebApp.Insfarstructer.pdb
+D:\ASPDotNet-jalaSir\aspdotnet\CleanArchitecture\WebApp.Insfarstructer\obj\Debug\net7.0\ref\WebApp.Insfarstructer.dll

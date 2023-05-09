@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebApp.Domin.Service;
 using WebApp.Models;
 
 namespace WebApp.Controllers
@@ -8,13 +9,17 @@ namespace WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ICourseService _courseService;
+
+        public HomeController(ILogger<HomeController> logger, ICourseService courseService)
         {
             _logger = logger;
+            _courseService = courseService;
         }
 
         public IActionResult Index()
         {
+          var resutl =   _courseService.GetCourses();
             return View();
         }
 

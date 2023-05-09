@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApp.Application.Service;
+using WebApp.Domin.Service;
 
 namespace WebApp.Application
 {
@@ -22,7 +24,8 @@ namespace WebApp.Application
 
         protected override void Load(ContainerBuilder builder)
         {
-           
+           builder.RegisterType<CourseService>().As<ICourseService>().WithParameter("connectionString", _connectionString)
+                .WithParameter("migrationAssembly", _migrationAssemblyName).InstancePerLifetimeScope();
         }
     }
 }
