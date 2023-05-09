@@ -1,0 +1,12 @@
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\bin\Debug\net7.0\WebApp.Domin.deps.json
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\bin\Debug\net7.0\WebApp.Domin.dll
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\bin\Debug\net7.0\WebApp.Domin.pdb
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.csproj.AssemblyReference.cache
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.GeneratedMSBuildEditorConfig.editorconfig
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.AssemblyInfoInputs.cache
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.AssemblyInfo.cs
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.csproj.CoreCompileInputs.cache
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.dll
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\refint\WebApp.Domin.dll
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\WebApp.Domin.pdb
+F:\Jallal\aspdotnet\CleanArchitecture\WebApp.Domin\obj\Debug\net7.0\ref\WebApp.Domin.dll
