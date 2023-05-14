@@ -1,0 +1,5 @@
+﻿Sure. Here is another example of how EDD can be used in C#. Suppose we have a class called Product and a class called Customer. We want the Product to be able to send an event to the Customer when the product is purchased.
+
+We can do this by creating an event called Purchased in the Product class. We can then add a handler to the Purchased event in the Customer class. When the Product is purchased, the Purchased event will be raised. The handler in the Customer class will then be called.
+
+Here is the code for the Product class:

@@ -1,0 +1,9 @@
+﻿ Event-driven design (EDD) is a software design pattern that decouples the sender of an event from the receiver of the event. This allows the sender and receiver to be developed independently and to evolve separately over time.
+
+A funny way to think about EDD is that it's like a party. The sender of the event is the host, and the receiver of the event is the guest. The host can send any event they want, and the guest can choose to respond to the event or not.
+
+Here is an example of how EDD can be used in C#. Suppose we have a class called Button and a class called Label. We want the Button to be able to send an event to the Label when the button is clicked.
+
+We can do this by creating an event called Click in the Button class. We can then add a handler to the Click event in the Label class. When the Button is clicked, the Click event will be raised. The handler in the Label class will then be called.
+
+Here is the code for the Button class:
