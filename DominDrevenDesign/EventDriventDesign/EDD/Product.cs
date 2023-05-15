@@ -10,7 +10,7 @@ namespace EventDriventDesign.EDD
     {
         public event EventHandler Purchased;
 
-        public void Purchase()
+        public void Click_Purchase()
         {
             if (Purchased != null)
             {
@@ -25,10 +25,10 @@ namespace EventDriventDesign.EDD
         {
             // Add a handler to the purchased event 
             Product product = new Product();
-            product.Purchased += Customer_Purchased;
+            product.Purchased += click_Customer_Purchased;
         }
 
-        public void Customer_Purchased(object sender, EventArgs e)
+        public void click_Customer_Purchased(object sender, EventArgs e)
         {
             // do somthing when  customer purchase button clicked 
             Console.WriteLine("some cliked now purchase Button Active");

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DominDrevenDesign", "DominDrevenDesign\DominDrevenDesign.csproj", "{1AB97217-A69C-42E4-9FFA-28D4B6514BE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventDriventDesign", "EventDriventDesign\EventDriventDesign.csproj", "{1DA6575F-FAF4-41AC-B58A-9BDC2036ADCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventDriventDesign", "EventDriventDesign\EventDriventDesign.csproj", "{1DA6575F-FAF4-41AC-B58A-9BDC2036ADCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDWinForm", "EDDWinForm\EDDWinForm.csproj", "{7072803F-1BA1-4B4C-A4CA-15E10BC925C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1DA6575F-FAF4-41AC-B58A-9BDC2036ADCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA6575F-FAF4-41AC-B58A-9BDC2036ADCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DA6575F-FAF4-41AC-B58A-9BDC2036ADCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7072803F-1BA1-4B4C-A4CA-15E10BC925C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7072803F-1BA1-4B4C-A4CA-15E10BC925C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7072803F-1BA1-4B4C-A4CA-15E10BC925C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7072803F-1BA1-4B4C-A4CA-15E10BC925C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
