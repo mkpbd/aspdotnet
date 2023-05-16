@@ -1,0 +1,8 @@
+﻿An association class is a class that is part of an association relationship between two other classes. It is used to represent additional information about the relationship between the two classes.
+
+In UML, an association class is represented by a dotted line connecting the two classes involved in the relationship. The association class is then drawn inside the dotted line.
+
+For example, consider a class called Student and a class called Course. A student can enroll in multiple courses, and a course can have multiple students enrolled in it. The association between Student and Course can be represented by an association class called Enrollment.
+
+The Enrollment class would have attributes to store the student's name, the course name, the section number, and the grade. It would also have operations to add and remove students from courses, and to get the student's grade in a course.
+
