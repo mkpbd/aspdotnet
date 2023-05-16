@@ -6,3 +6,142 @@ For example, consider a class called Student and a class called Course. A studen
 
 The Enrollment class would have attributes to store the student's name, the course name, the section number, and the grade. It would also have operations to add and remove students from courses, and to get the student's grade in a course.
 
+
+class Student
+{
+    public string Name { get; set; }
+}
+
+class Course
+{
+    public string Name { get; set; }
+}
+
+class Enrollment
+{
+    public Student Student { get; set; }
+    public Course Course { get; set; }
+    public int SectionNumber { get; set; }
+    public double Grade { get; set; }
+
+    public void AddStudent(Student student)
+    {
+        this.Student = student;
+    }
+
+    public void RemoveStudent(Student student)
+    {
+        this.Student = null;
+    }
+
+    public double GetGrade()
+    {
+        return this.Grade;
+    }
+}
+
+
+An association class is a class that is part of an association relationship between two other classes. 
+It is used to represent additional information about the relationship between the two classes.
+
+In UML, an association class is represented by a dotted line connecting the two classes involved in the relationship.
+The association class is then drawn inside the dotted line.
+
+For example, consider a class called Student and a class called Course.
+A student can enroll in multiple courses, and a course can have multiple students enrolled in it. 
+The association between Student and Course can be represented by an association class called Enrollment.
+
+The Enrollment class would have attributes to store the student's name, the course name, the section number, and the grade. It would also have operations to add and remove students from courses, and to get the student's grade in a course.
+
+Here is an example of an association class diagram in C#:
+
+C#
+class Student
+{
+    public string Name { get; set; }
+}
+
+class Course
+{
+    public string Name { get; set; }
+}
+
+class Enrollment
+{
+    public Student Student { get; set; }
+    public Course Course { get; set; }
+    public int SectionNumber { get; set; }
+    public double Grade { get; set; }
+
+    public void AddStudent(Student student)
+    {
+        this.Student = student;
+    }
+
+    public void RemoveStudent(Student student)
+    {
+        this.Student = null;
+    }
+
+    public double GetGrade()
+    {
+        return this.Grade;
+    }
+}
+Use code with caution. Learn more
+This association class diagram shows the relationship between the Student and Course classes.
+The Enrollment class is used to store additional information about the relationship, such as the student's name, the course name, the section number, and the grade.
+
+
+=============================== Another Example Association =============================================
+
+
+An association class diagram is a type of UML diagram that shows the relationships between classes.
+It is used to model the interactions between objects in a system.
+
+A funny way to think about an association class diagram is as a "love triangle" between three classes.
+The association class is the "love child" of the two other classes, and it inherits properties from both of them.
+
+For example, let's say we have a class called Person and a class called Pet.
+We can model the relationship between a person and their pet using an association class called Ownership. 
+The Ownership class would have properties for the person's name, the pet's name, and the type of pet.
+
+            class Person {
+              public string Name { get; set; }
+            }
+
+            class Pet {
+              public string Name { get; set; }
+              public string Type { get; set; }
+            }
+
+            class Ownership {
+              public Person Person { get; set; }
+              public Pet Pet { get; set; }
+            }
+
+    This association class diagram shows that a person can own one or more pets. 
+    The Ownership class inherits properties from both the Person class and the Pet class.
+
+
+    ========================================== Another Example ===============================================
+
+    This diagram shows that a course can have many students, and a student can take many courses. 
+    The funny way of representing this is by using the names "Course" and "Student" for the classes, and by giving the properties "Students" and "Courses" to both classes. 
+    This makes it look like a course is a kind of student, and a student is a kind of course.
+
+            public class Course
+        {
+            public string Name { get; set; }
+            public ICollection<Student> Students { get; set; }
+        }
+
+        public class Student
+        {
+            public string Name { get; set; }
+            public ICollection<Course> EnrolledCourses { get; set; }
+        }
+
+
+        This diagram uses the more abstract names "ICourse" and "IStudent" for the classes, and it uses the more abstract property "ICollection" for the students. 
+        This makes it more clear that the relationship between a course and its students is a generic one, and that it could be used to represent any kind of relationship between two entities.
