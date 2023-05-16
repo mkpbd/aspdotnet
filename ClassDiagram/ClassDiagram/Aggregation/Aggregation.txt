@@ -59,3 +59,52 @@ For example, the human needs a head to think, a torso to hold its organs, arms t
 In this example, the Car class is the whole object, and the Wheel, Engine, and SteeringWheel classes are the parts.
 The parts can exist independently of the car, but they are related to the car in some way. 
 For example, the car needs wheels to move, an engine to power the wheels, and a steering wheel to control the direction of the car.
+
+
+=============================== Another Example ========================================
+
+class Car
+{
+    public Engine Engine { get; set; }
+    public Wheels Wheels { get; set; }
+    public Body Body { get; set; }
+}
+
+The Car class is a humble object because it does not have any special abilities or features.
+It is simply a collection of parts that work together to make a car. 
+The Engine provides the power, the Wheels allow the car to move, and the Body protects the driver and passengers.
+
+Humble objects are important because they can be used to create complex systems without the need for complex code.
+For example, a car is a complex system, but it can be created using a simple Car class. 
+This makes it easier to understand and maintain the code.
+
+
+class TrafficSystem
+{
+    public List<Car> Cars { get; set; }
+
+    public void AddCar(Car car)
+    {
+        Cars.Add(car);
+    }
+
+    public void RemoveCar(Car car)
+    {
+        Cars.Remove(car);
+    }
+
+    public void MoveCars()
+    {
+        foreach (var car in Cars)
+        {
+            car.Engine.Start();
+            car.Wheels.Turn();
+            car.Body.Move();
+        }
+    }
+}
+
+
+The TrafficSystem class is a complex system that can be used to simulate traffic. 
+It uses the humble Car class to represent each car in the traffic system.
+The TrafficSystem class can be used to add cars to the system, remove cars from the system, and move the cars in the system.
