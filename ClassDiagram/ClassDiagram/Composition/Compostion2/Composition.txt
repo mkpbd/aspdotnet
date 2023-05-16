@@ -1,0 +1,16 @@
+The last two requirements are actually logically one.  If you read closely both the requirements which are as follows:-
+ Manager has the responsibility of ensuring that the project is successful.
+ Manager's salary will be judged based on project success.
+Below is the conclusion from analyzing the above requirements:-
+ Manager and the project objects are dependent on each other.
+The lifetimes of both objects are the same. In other words, the project will not be successful if the manager is not good and the manager will not get good increments if the project has issues.
+Below is how the class formation will look like. You can also see when I go to create the project object it needs the manager object
+
+
+
+This relationship is termed as the composition relationship. 
+In this relationship, both objects are heavily dependent on each other. 
+In other words, if goes for garbage collection the other also has to garbage collected or putting from a different perspective the lifetime of the objects are same. 
+That's why I have put in the heading "Death" relationship
+
+

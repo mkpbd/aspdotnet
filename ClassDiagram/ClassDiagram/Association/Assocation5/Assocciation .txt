@@ -1,0 +1,10 @@
+Requirement 2 is an interesting requirement (Manager uses a swipe card to enter XYZ premises).
+ In this requirement, the manager object and swipe card object use each other but they have their own object lifetime.
+ In other words, they can exist without each other. The most important point in this relationship is that there is no single owner.
+
+
+
+The above diagram shows how the "SwipeCard"   class uses the "Manager" class and the "Manager" class uses the "SwipeCard" class. 
+You can also see how we can create the object of the "Manager" class and "SwipeCard" independently and they can have their own object lifetime.
+ 
+This relationship is called the "Association" relationship.
