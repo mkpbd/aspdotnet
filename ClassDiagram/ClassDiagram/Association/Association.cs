@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassDiagram.Association.Association2
+namespace ClassDiagram.Association
 {
-    internal class Person
+    internal class Association
     {
-        public string Name { get; set; }
     }
 }

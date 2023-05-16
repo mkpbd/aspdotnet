@@ -1,0 +1,46 @@
+﻿A composition class diagram in C# is a type of UML diagram that shows the relationships between classes and objects. 
+It is used to represent the composition relationship, which is a strong type of aggregation. 
+In a composition relationship, the child object cannot exist without the parent object. 
+The parent object is responsible for creating and destroying the child object.
+
+Composition is represented on a UML diagram by a filled diamond between the parent and child classes. 
+The following is an example of a composition class diagram:
+
+
+            class Car
+            {
+                private Engine engine;
+
+                public Car()
+                {
+                    engine = new Engine();
+                }
+
+                public void Drive()
+                {
+                    engine.Start();
+                }
+            }
+
+            class Engine
+            {
+                public void Start()
+                {
+                    // Start the engine
+                }
+            }
+
+ In this example, the Car class has a composition relationship with the Engine class.
+ This means that a Car object cannot exist without an Engine object.
+The Car class is responsible for creating and destroying the Engine object.
+
+Composition is a useful way to represent the relationships between classes and objects in a C# program.
+It can help to improve the readability and maintainability of your code.
+
+Here are some of the benefits of using composition class diagrams in C#:
+
+They can help to improve the readability and maintainability of your code.
+They can help you to identify potential problems in your design.
+They can help you to communicate your design to other developers.
+If you are working on a C# project, I encourage you to use composition class diagrams to help you to design your code.
+They can be a valuable tool for improving the quality of your code.
