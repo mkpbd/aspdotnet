@@ -10,5 +10,13 @@ namespace ClassDiagram.Association.Association3
     {
         public string Name { get; set; }
         public ICollection<Student> Students { get; set; }
+
+        public int Id
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

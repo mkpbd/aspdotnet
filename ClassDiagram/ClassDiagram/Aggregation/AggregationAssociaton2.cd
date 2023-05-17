@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassDiagram.Aggregation.Pizza">
+    <Position X="5.5" Y="1" Width="1.5" />
+    <AssociationLine Name="Toppings" Type="ClassDiagram.Aggregation.Topping" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.938" Y="1.868" />
+        <Point X="5.125" Y="1.868" />
+        <Point X="5.125" Y="3.748" />
+        <Point X="4" Y="3.748" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAA=</HashCode>
+      <FileName>Aggregation\Pizza.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cheeses" />
+      <Property Name="Sauce" />
+      <Property Name="Toppings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ClassDiagram.Aggregation.Sauce">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAIAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Aggregation\Sauce.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassDiagram.Aggregation.Topping">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aggregation\Topping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassDiagram.Aggregation.Cheese">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAIAAAAAAAQAAAAAAAAAAIAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Aggregation\Cheese.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

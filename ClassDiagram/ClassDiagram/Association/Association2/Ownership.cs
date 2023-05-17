@@ -10,5 +10,13 @@ namespace ClassDiagram.Association.Association2
     {
         public Person Person { get; set; }
         public Pet Pet { get; set; }
+
+        public string Address
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
