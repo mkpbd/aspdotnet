@@ -92,10 +92,10 @@ namespace DDD.DDD1
         public void BorrowBook(Patron patron, Book book)
         {
             // Check if the patron is allowed to borrow the book.
-         //   if (patron.HasReachedBorrowLimit())
-           // {
-               // throw new Exception("Patron has reached borrow limit.");
-           // }
+            //   if (patron.HasReachedBorrowLimit())
+            // {
+            // throw new Exception("Patron has reached borrow limit.");
+            // }
 
             // Check if the book is available.
             if (book.IsBorrowed)
@@ -104,19 +104,27 @@ namespace DDD.DDD1
             }
 
             // Borrow the book.
-          //  book.BorrowedBy = patron;
+            //  book.BorrowedBy = patron;
         }
 
         public void ReturnBook(Patron patron, Book book)
         {
             // Check if the patron is the one who borrowed the book.
-           // if (book.BorrowedBy != patron)
-           // {
-               // throw new Exception("Patron did not borrow this book.");
+            // if (book.BorrowedBy != patron)
+            // {
+            // throw new Exception("Patron did not borrow this book.");
             //}
 
             // Return the book.
             book.BorrowedBy = null;
         }
+
     }
+
+
+    /**
+     * This code implements the basic functionality of a library of puns. It allows users to add books, authors, and patrons to the library. It also allows users to borrow and return books. This is just a simple example, but it shows how DDD can be used to implement real-world applications.
+     ***/
+
+
 }
