@@ -11,37 +11,33 @@ namespace DDD.DDD1
         public string Title { get; set; }
         public string Author { get; set; }
         public string Genre { get; set; }
-        public bool IsBorrowed { get; set; }
-        public string BorrowedBy { get; set; }
+        public int ISBN { get; set; }
+        public bool Available { get; set; }
+        public List<Patron> Borrowers { get; set; }
     }
 
     public class Author
     {
         public string Name { get; set; }
         public DateTime Birthdate { get; set; }
+        public List<Book> BooksWritten { get; set; }
     }
 
     public class Patron
     {
         public string Name { get; set; }
         public string Address { get; set; }
+        public List<Book> BorrowedBooks { get; set; }
+        public int BorrowLimit { get; set; } = 5;
     }
 
-    public class Pun
-    {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Genre { get; set; }
-        public string Puns { get; set; }
-    }
-
-    public class PunLibrary
+    public class Library
     {
         public List<Book> Books { get; set; }
         public List<Author> Authors { get; set; }
         public List<Patron> Patrons { get; set; }
 
-        public PunLibrary()
+        public Library()
         {
             Books = new List<Book>();
             Authors = new List<Author>();
@@ -50,75 +46,80 @@ namespace DDD.DDD1
             // Add some books to the library.
             Books.Add(new Book
             {
-                Title = "The Pun That Was Promised",
-                Author = "Pun Master",
-                Genre = "Fantasy"
+                Title = "The Lord of the Rings",
+                Author = "J.R.R. Tolkien",
+                Genre = "Fantasy",
+                ISBN = 034539181,
+                Available = true
             });
 
             Books.Add(new Book
             {
-                Title = "The Pun That Killed",
-                Author = "The Punsmith",
-                Genre = "Horror"
+                Title = "The Hitchhiker's Guide to the Galaxy",
+                Author = "Douglas Adams",
+                Genre = "Sci-Fi",
+                ISBN = 034539181,
+                Available = true
             });
 
             // Add some authors to the library.
             Authors.Add(new Author
             {
-                Name = "Pun Master",
-                Birthdate = new DateTime(1970, 1, 1)
+                Name = "J.R.R. Tolkien",
+                Birthdate = new DateTime(1892, 1, 3),
             });
 
             Authors.Add(new Author
             {
-                Name = "The Punsmith",
-                Birthdate = new DateTime(1980, 1, 1)
+                Name = "Douglas Adams",
+                Birthdate = new DateTime(1952, 3, 11),
             });
 
             // Add some patrons to the library.
             Patrons.Add(new Patron
             {
-                Name = "Punster",
-                Address = "123 Pun Street"
+                Name = "Bard",
+                Address = "123 Hobbiton Lane",
             });
 
             Patrons.Add(new Patron
             {
-                Name = "Pun-dit",
-                Address = "456 Pun Avenue"
+                Name = "Arthur Dent",
+                Address = "456 Earth",
             });
         }
 
         public void BorrowBook(Patron patron, Book book)
         {
             // Check if the patron is allowed to borrow the book.
-            //   if (patron.HasReachedBorrowLimit())
-            // {
-            // throw new Exception("Patron has reached borrow limit.");
-            // }
+            if (patron.BorrowLimit == 3)
+            {
+                throw new Exception("Patron has reached borrow limit.");
+            }
 
             // Check if the book is available.
-            if (book.IsBorrowed)
+            if (!book.Available)
             {
-                throw new Exception("Book is already borrowed.");
+                throw new Exception("Book is not available.");
             }
 
             // Borrow the book.
-            //  book.BorrowedBy = patron;
+            book.Available = false;
+            patron.BorrowedBooks.Add(book);
         }
 
         public void ReturnBook(Patron patron, Book book)
         {
             // Check if the patron is the one who borrowed the book.
-            // if (book.BorrowedBy != patron)
-            // {
-            // throw new Exception("Patron did not borrow this book.");
-            //}
+            if (book.Borrowers.Count != patron.BorrowedBooks.Count)
+            {
+                throw new Exception("Patron did not borrow this book.");
+            }
 
             // Return the book.
-            book.BorrowedBy = null;
+            book.Available = true;
+            patron.BorrowedBooks.Remove(book);
         }
-
     }
 
 
