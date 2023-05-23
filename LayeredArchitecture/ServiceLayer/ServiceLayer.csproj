@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusnessLogic\BusnessLogic.csproj" />
+  </ItemGroup>
+
 </Project>
