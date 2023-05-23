@@ -1,0 +1,3 @@
+﻿As the name suggests, this layer is responsible for implementing and encapsulating
+the program’s business logic. This is the place where business decisions are implemented.
+As Eric Evans says,1 this layer is the heart of software.

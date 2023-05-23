@@ -1,0 +1,5 @@
+The layers are integrated in a top-down communication model: each layer can hold a
+dependency only on the layer directly beneath it. This enforces
+decoupling of implementation concerns and reduces the knowledge shared
+between the layers    the presentation layer references only the business
+logic layer. It has no knowledge of the design decisions made in the data access layer.

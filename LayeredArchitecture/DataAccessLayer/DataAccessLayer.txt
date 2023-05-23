@@ -1,0 +1,18 @@
+﻿The data access layer provides access to persistence mechanisms. In the pattern’s original
+form, this referred to the system’s database. However, as in the case of the presentation
+layer, the layer’s responsibility is broader for modern systems.
+
+First, ever since the NoSQL revolution broke out, it is common for a system to work
+with multiple databases. For example, a document store can act as the operational
+database, a search index for dynamic queries, and an in-memory database for
+performance-optimized operations.
+
+Second, traditional databases are not the only medium for storing information. For
+example, cloud-based object storage2 can be used to store the system’s files, or a message
+bus can be used to orchestrate communication between the program’s different
+functions
+
+Finally, this layer also includes integration with the various external information providers
+needed to implement the program’s functionality: APIs provided by external
+systems, or cloud vendors’ managed services, such as language translation, stock market
+data, and audio transcription
