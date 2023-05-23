@@ -51,3 +51,29 @@ create a new instance and save it. Moreover, it orchestrates a database transact
 ensure that a proper response is generated in case of an error.
 To further decouple the presentation layer from the underlying business logic, such
 orchestration logic can be moved into a service layer,
+
+
+========================
+
+
+It’s important to note that in the context of the architectural pattern, the service layer
+is a logical boundary. It is not a physical service.
+The service layer acts as a façade for the business logic layer: it exposes an interface
+that corresponds with the public interface’s methods, encapsulating the required
+orchestration of the underlying layers. For example:
+
+
+interface CampaignManagementService
+{
+OperationResult CreateCampaign(CampaignDetails details);
+OperationResult Publish(CampaignId id, PublishingSchedule schedule);
+OperationResult Deactivate(CampaignId id);
+OperationResult AddDisplayLocation(CampaignId id, DisplayLocation newLocation);
+
+}
+
+
+All of the preceding methods correspond to the system’s public interface. However,
+they lack presentation-related implementation details. The presentation layer’s
+responsibility becomes limited to providing the required input to the service layer
+and communicating its responses back to the caller.
