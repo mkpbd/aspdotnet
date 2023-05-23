@@ -1,0 +1,53 @@
+﻿
+Variations 
+=================
+It’s common to see the layered architecture pattern extended with an additional layer:
+the service layer.
+
+
+==================
+
+Service layer
+Defines an application’s boundary with a layer of services that establishes a set of available
+operations and coordinates the application’s response in each operation.
+
+==============
+The service layer acts as an intermediary between the program’s presentation and
+business logic layers. Consider the following code
+
+
+=============  The MVC controller in this example belongs to the presentation layer. It exposes an
+endpoint that creates a new user. The endpoint uses the User active record object to
+Layered Architecture
+
+
+namespace MvcApplication.Controllers
+{
+public class UserController: Controller
+{
+
+[AcceptVerbs(HttpVerbs.Post)]
+public ActionResult Create(ContactDetails contactDetails)
+{
+OperationResult result = null;
+try
+{
+_db.StartTransaction();
+var user = new User();
+user.SetContactDetails(contactDetails)
+user.Save();
+_db.Commit();
+result = OperationResult.Success;
+} catch (Exception ex) {
+_db.Rollback();
+result = OperationResult.Exception(ex);
+}
+return View(result);
+}
+}
+}
+
+create a new instance and save it. Moreover, it orchestrates a database transaction to
+ensure that a proper response is generated in case of an error.
+To further decouple the presentation layer from the underlying business logic, such
+orchestration logic can be moved into a service layer,
