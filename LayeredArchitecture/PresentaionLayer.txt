@@ -1,0 +1,17 @@
+Presentation Layer
+The presentation layer,  implements the program’s user interface
+for interactions with its consumers. In the pattern’s original form, this layer denotes a
+graphical interface, such as a web interface or a desktop application.
+In modern systems, however, the presentation layer has a broader scope: that is, all
+means for triggering the program’s behavior, both synchronous and asynchronous.
+
+• Graphical user interface (GUI)
+• Command-line interface (CLI)
+• API for programmatic integration with other systems
+• Subscription to events in a message broker
+• Message topics for publishing outgoing events
+
+
+All of these are the means for the system to receive requests from the external environment
+and communicate the output. Strictly speaking, the presentation layer is the
+program’s public interface.
