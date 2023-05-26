@@ -16,19 +16,21 @@ For example, in an online store, an aggregate could be a customer order. The agg
      * **/
     internal class Order : IOrderAggregatesRoot
     {
+        public List<OrderItem> Items { get; set; }
         public void AddItem(OrderItem item)
         {
-            throw new NotImplementedException();
+            Items.Add(item);
         }
 
         public void RemoveItem(OrderItem item)
         {
-            throw new NotImplementedException();
+            Items.Remove(item);
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            Items = new List<OrderItem>();
+            // save item in database or other files
         }
     }
 }
