@@ -1,4 +1,5 @@
-﻿using Domain.Products;
+﻿using Domain.Customers;
+using Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,36 @@ namespace Domain.Orders
 {
     public class Order
     {
-        private readonly HashSet<List<ListItem>> _listItem;
-        public Guid Id { get; set; }
-        public Guid CustomerId { get; set; }
+        private readonly HashSet<ListItem> _listItem;
+        public OrderId Id { get; set; }
+        public CustomerId CustomerId { get; set; }
 
         //public void Add(Product product)
         //{
         //    var listItem = new ListItem(Guid.NewGuid(), product.Id, product.Price);
         //}
 
-    }
+        public Order() { }
 
-    public class ListItem
-    {
-        public ListItem(Guid id,  Guid productId, decimal price) { 
-            Id = id;
-           // OrderId = orderId;
-            ProductId = productId;
-            Price = price;
+        public static Order Create(Customer customer)
+        {
+            var order = new Order()
+            {
+                Id = new OrderId(Guid.NewGuid()),
+                CustomerId = customer.Id,
+            };
+
+            return order;
         }
-        public Guid Id { get; set; }
-        public Guid OrderId { get; set; }
-        public Guid ProductId { get; set; }
-        public decimal Price { get; set; }
+
+        public void Add(ProductId productId, Money price)
+        {
+            var list = new ListItem(new ListItemId(Guid.NewGuid()), productId, Id, price);
+
+            _listItem.Add(list);
+        }
 
     }
+
+    
 }
