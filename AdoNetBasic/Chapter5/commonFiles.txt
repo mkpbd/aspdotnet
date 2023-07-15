@@ -1,6 +1,0 @@
-﻿1. DataTable
-2. DataSet
-3. DataAdapter 
-4. DataView 
-5. AutoIncrement
-
