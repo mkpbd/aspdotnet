@@ -13,6 +13,7 @@ namespace Domain.Orders
         private readonly HashSet<LineItem> _itemLists = new HashSet<LineItem>();
         public OrderId Id { get; private set; }
         public CustomerId CustomerId { get; private set; }
+        public List<LineItem> LineItems { get;  set; } = new List<LineItem>();
         private Order() { }
         public static Order Create(Customer customer)
         {
