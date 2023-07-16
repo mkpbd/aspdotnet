@@ -1,10 +1,62 @@
 ### **Eshop Site Desgin with  DDD (Domain Driven Design)**
 
-
 ![1689412213140](image/readme/1689412213140.png)
 
+Design Domain
 
-**Strongly type Ids** 
+```csharp
+ public record OrderId(Guid Value);
+public class Order
+    {
+        private readonly HashSet<LineItem> _itemLists = new HashSet<LineItem>();
+        public OrderId Id { get; private set; }
+        public CustomerId CustomerId { get; private set; }
+        //public List<LineItem> LineItems { get;  set; } = new List<LineItem>();
+
+        public IReadOnlyList<LineItem> LineItems => _itemLists.ToList();
+        private Order() { }
+        public static Order Create(Customer customer)
+        {
+            var order = new Order()
+            {
+                Id = new OrderId(Guid.NewGuid()),
+                CustomerId = customer.Id,
+            };
+            return order;
+
+        }
+        public void Add(ProductId productId , Money money)
+        {
+            var lineItem = new LineItem(new LineItemId(Guid.NewGuid()), Id ,productId,money);
+            _itemLists.Add(lineItem);
+        }
+
+    }
+```
+
+```csharp
+public record LineItemId(Guid Value);
+
+public class LineItem
+    {
+        private LineItem() { }
+        public LineItem(LineItemId _item, OrderId _orderId, ProductId _productId, Money _price)
+        {
+            Id = _item;
+            OrderId = _orderId;
+            ProductId = _productId;
+            Price = _price;
+        }
+
+        public LineItemId Id { get; private set; }
+        public OrderId OrderId { get; private set; }
+        public ProductId ProductId { get; private set; }
+        public Money Price { get; private set; }
+
+    }
+```
+
+**Strongly type Ids**
 
 A strongly typed ID is a unique identifier that is used to represent an object in a database or other data store. The ID is strongly typed, which means that it is of a specific type, such as an integer or a string. This ensures that the ID is always of the correct type and that it can be safely used in operations such as comparisons and sorting.
 
@@ -67,9 +119,7 @@ Here are some other examples of strongly typed IDs in C#:
 * `Uri`
 * `IPAddress`
 
-
-
-### **an anemic domain model is an anti-pattern** 
+### **an anemic domain model is an anti-pattern**
 
  It is a design pattern that results in domain objects that are too thin, containing only data and no business logic. This makes the domain objects less cohesive and difficult to test.
 
@@ -83,7 +133,6 @@ public class Customer
   public string Email { get; set; }
 }
 ```
-
 
 This class only contains data, and no business logic. For example, there is no code to check if the customer's name is valid, or to send the customer an email. This logic would be implemented in a separate class, which would make the Customer class more difficult to test.
 
