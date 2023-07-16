@@ -39,3 +39,12 @@ Here is a simple way to think about bounded contexts:
 **Order processing:** This bounded context would contain the concepts of orders, payments, and shipping
 
 ![1689494191927](image/readme/1689494191927.png)
+
+
+![1689509425839](image/readme/1689509425839.png)
+
+![1689509451538](image/readme/1689509451538.png)
+
+![1689509466004](image/readme/1689509466004.png)
+
+![1689509478697](image/readme/1689509478697.png)
