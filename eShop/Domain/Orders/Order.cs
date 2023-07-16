@@ -13,7 +13,9 @@ namespace Domain.Orders
         private readonly HashSet<LineItem> _itemLists = new HashSet<LineItem>();
         public OrderId Id { get; private set; }
         public CustomerId CustomerId { get; private set; }
-        public List<LineItem> LineItems { get;  set; } = new List<LineItem>();
+        //public List<LineItem> LineItems { get;  set; } = new List<LineItem>();
+
+        public IReadOnlyList<LineItem> LineItems => _itemLists.ToList();
         private Order() { }
         public static Order Create(Customer customer)
         {
