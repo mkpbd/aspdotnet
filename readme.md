@@ -2,6 +2,8 @@
 
 ![1689412213140](image/readme/1689412213140.png)
 
+![1689469878204](image/readme/1689469878204.png)
+
 Design Domain
 
 ```csharp
