@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5E7E5BB5-A05C-465B-B966-8346C6C0979C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{5E7E5BB5-A05C-465B-B966-8346C6C0979C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShareKarnel", "ShareKarnel", "{42269588-7F45-4EA3-9FE5-5773E2803AB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareKarnel", "ShareKarnel\ShareKarnel.csproj", "{7F624674-329A-48E2-9978-8BE17A8C7EB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aggregates", "Aggregates", "{6563929D-F5B7-452C-9043-0E0C3BFAC242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aggregates", "Aggregates\Aggregates.csproj", "{0A544352-8573-42C2-8944-4B8D87349207}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +23,21 @@ Global
 		{5E7E5BB5-A05C-465B-B966-8346C6C0979C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E7E5BB5-A05C-465B-B966-8346C6C0979C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E7E5BB5-A05C-465B-B966-8346C6C0979C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F624674-329A-48E2-9978-8BE17A8C7EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F624674-329A-48E2-9978-8BE17A8C7EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F624674-329A-48E2-9978-8BE17A8C7EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F624674-329A-48E2-9978-8BE17A8C7EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A544352-8573-42C2-8944-4B8D87349207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A544352-8573-42C2-8944-4B8D87349207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A544352-8573-42C2-8944-4B8D87349207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A544352-8573-42C2-8944-4B8D87349207}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7F624674-329A-48E2-9978-8BE17A8C7EB3} = {42269588-7F45-4EA3-9FE5-5773E2803AB0}
+		{0A544352-8573-42C2-8944-4B8D87349207} = {6563929D-F5B7-452C-9043-0E0C3BFAC242}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FA6ABDD-3ADA-492D-9C55-97767F94BD8B}

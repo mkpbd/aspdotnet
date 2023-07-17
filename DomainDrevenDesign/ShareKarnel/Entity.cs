@@ -32,6 +32,7 @@ namespace ShareKarnel
             return Id.GetHashCode();
         }
 
+        // == equal opertor  check
         public static  bool operator ==(Entity<TId> lhs,  Entity<TId> rhs)
         {
             return lhs.Equals(rhs);
