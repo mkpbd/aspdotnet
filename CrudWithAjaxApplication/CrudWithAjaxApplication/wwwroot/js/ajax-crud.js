@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿// A $( document ).ready() block.
 $(document).ready(function () {
     $("#btnAdd").click(function () {
@@ -139,3 +140,9 @@ $(document).ready(function () {
 
     loadCustomerRecords();
 });
+=======
+﻿
+$("#btnAdd").click(function () {
+     console.log("hello")
+    });
+>>>>>>> Stashed changes
