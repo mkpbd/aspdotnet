@@ -1,4 +1,4 @@
-﻿namespace CrudWithAjaxApplication.Interfaces
+﻿namespace CrudWithAjaxApplication.GenericInterfaces
 {
     public interface IGenericRepository<T> where T : class
     {
