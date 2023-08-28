@@ -11,6 +11,14 @@ namespace CrudWithAjaxApplication.Data
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("DefaultConnection");
+            }
+        }
+
         public DbSet<Customer> Customer { get; set; }
     }
 }
