@@ -40,7 +40,41 @@ $(document).ready(function () {
 
 
 
-        console.log(socialMeida, skillItem);
+        //  working expericene
+
+        let postion = document.querySelectorAll('.position')
+        let companys = document.querySelectorAll('.companyName');
+        let workingYears = document.querySelectorAll('.yorking-year');
+        let workingTools = document.querySelectorAll('.workingTools li');
+   //     debugger
+        const WorkingExperince = [];
+
+        let countForNestLopping = 0;
+      
+
+        for (let i = 0; i < postion.length; i++) {
+            let positionName = postion[i].innerText;
+            let companyName = companys[i].innerText;
+            let workingYear = workingYears[i].innerText;
+           
+            let Tools = [];
+    
+
+            for (let j = 0; j < workingTools.length; j++) {
+                debugger;
+                let workingTool = workingTools[j].innerText;
+                Tools.push({ item: workingTool });
+            }
+           // countForNestLopping += positionName.length;
+
+
+            WorkingExperince.push({ positionName: positionName, companyName: companyName, workingYear: workingYear, workingTool: Tools })
+
+        }
+
+        // Personal and industrial project
+
+        console.log(socialMeida, skillItem, WorkingExperince);
       
  
 
