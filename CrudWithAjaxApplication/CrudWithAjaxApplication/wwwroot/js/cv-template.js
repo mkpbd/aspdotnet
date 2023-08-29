@@ -55,10 +55,10 @@ editable.forEach(function (elem) {
         ev.target.style.border = '1px solid #ddd';
         ev.target.padding = 'none';
 
-        editButton.style.top = (ev.layerY) + 'px';
-        editButton.style.display = 'block';
+       // editButton.style.top = (ev.layerY) + 'px';
+      //  editButton.style.display = 'block';
 
-        console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
+      //  console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
         // anchor.setAttribute('contenteditable', 'true');
         // anchor.addEventListener('input', function(e){
 
@@ -77,10 +77,10 @@ editable.forEach(function (elem) {
         ev.target.style.border = '1px solid #ddd';
         ev.target.padding = 'none';
 
-        editButton.style.top = (ev.layerY) + 'px';
-        editButton.style.display = 'block';
+       // editButton.style.top = (ev.layerY) + 'px';
+      //  editButton.style.display = 'block';
 
-        console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
+     //   console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
         // anchor.setAttribute('contenteditable', 'true');
         // anchor.addEventListener('input', function(e){
 

@@ -68,7 +68,7 @@ $(document).ready(function () {
             // countForNestLopping += positionName.length;
 
 
-            WorkingExperince.push({ positionName: positionName, companyName: companyName, workingYear: workingYear, workingTool: Tools })
+            WorkingExperince.push({ positionName: positionName, Company: companyName, workingYear: workingYear, workingTool: Tools })
 
         }
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
             projects.push({
                 project: project.innerText, projectPersonal: projectPersonal.innerText,
-                projecDscription: projecDscription.innerText, projectCompany: projectCompany, projectCompanyDescription: projectCompanyDescription
+                Description: projecDscription.innerText, Title: projectCompany, projectCompanyDescription: projectCompanyDescription
             })
 
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
             let subject = subjects[i].innerText;
             let passingYear = passingYears[i].innerText;
 
-            education.push({ subject: subject, passingYear: passingYear })
+            education.push({ Institution: subject, GraduationYear: passingYear })
 
         }
 
@@ -127,37 +127,40 @@ $(document).ready(function () {
             let designation = reffenceDesig[i].innerText;
             let name = reffenceName[i].innerText;
 
-            refference.push({ designation: designation, name: name });
+            refference.push({ Designation: designation, name: name });
         }
 
 
         const Data = {
+            name: name.innerText,
+            email: email.innerText,
+            mobile: mobile.innerText,
             socialMeida: socialMeida,
             skillItem: skillItem,
-            WorkingExperince: WorkingExperince,
-            projects: projects,
-            education: education,
-            refference: refference
+            WorkExperience: WorkingExperince,
+            Project: projects,
+            Education: education,
+            Reference: refference
 
         }
 
 
-        //console.log(Data);
+        console.log(Data);
 
-        $.ajax({
-            type: "POST",
-            url: "CVBuilder/CVBuilderAdd",
-            data: Data,
-            contentType: 'application/x-www-form-urlencoded',
-            dataType: "json",
+        //$.ajax({
+        //    type: "POST",
+        //    url: "CVBuilder/CVBuilderAdd",
+        //    data: Data,
+        //    contentType: 'application/x-www-form-urlencoded',
+        //    dataType: "json",
 
-            success: function (msg) {
-                console.log(msg);
-            }
+        //    success: function (msg) {
+        //        console.log(msg);
+        //    }
+
+        //});
 
 
-
-        });
 
     });
 

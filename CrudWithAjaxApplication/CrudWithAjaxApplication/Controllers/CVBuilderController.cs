@@ -19,7 +19,7 @@ namespace CrudWithAjaxApplication.Controllers
             return View();
         }
 
-        public async Task<JsonResult> CVBuilderAdd(Customer customer)
+        public async Task<JsonResult> CVBuilderAdd(CVBuilderDTO customer)
         {
 
 
