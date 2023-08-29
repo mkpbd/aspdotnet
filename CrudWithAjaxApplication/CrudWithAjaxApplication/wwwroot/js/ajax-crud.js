@@ -140,9 +140,3 @@ $(document).ready(function () {
 
     loadCustomerRecords();
 });
-=======
-﻿
-$("#btnAdd").click(function () {
-     console.log("hello")
-    });
->>>>>>> Stashed changes

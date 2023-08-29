@@ -14,21 +14,21 @@
       <div class="mkp__header__information">
           <button id="saveData">Save CV </button>
         <address>
-          <h3 class="mkp__font__bold editable" onEdi>Md. Jalal Uddin</h3>
+          <h3 class="mkp__font__bold editable cvName">Md. Jalal Uddin</h3>
           <p>
-            <strong class="mkp__font__bold editable">Email:</strong>
-            <a class="mkp__href editable" href="mailto:jalal.test@gmail.com">jalal.test@gmail.com</a>
+            <strong class="mkp__font__bold  editable">Email:</strong>
+            <a class="mkp__href email editable" href="mailto:jalal.test@gmail.com">jalal.test@gmail.com</a>
           </p>
-          <p> <strong class="mkp__font__bold editable">Contact: </strong><a class="mkp__href editable"
+          <p> <strong class="mkp__font__bold editable">Contact: </strong><a class="mkp__href editable mobile"
               href="tel:+8801711111111">+8801711111111</a></p>
-          <p> <strong class="mkp__font__bold editable">Skype: </strong> <span class="editable">Jalal test.txt</span></p>
+          <p> <strong class="mkp__font__bold editable socialName">Skype: </strong> <span class="editable sociallink">Jalal test.txt</span></p>
           <p>
-            <strong class="mkp__font__bold editable"> LinkedIn: </strong>
+            <strong class="mkp__font__bold editable socialName"> LinkedIn: </strong>
 
-            <a class="mkp__href editable"
+            <a class="mkp__href editable sociallink"
               href="https://www.linkedin.com/in/jalal-test-123456789/">https://www.linkedin.com/in/jalal-test-123456789/</a>
           </p>
-          <p class="editable">
+          <p class="editable address">
             Residential Address: House 11, Road 11, Mirpur, Dhaka, Bangladesh
           </p>
         </address>
@@ -51,8 +51,8 @@
 
     <main class="mkp__main">
       <section class="mkp__professional">
-        <h4 class="mkp__font__bold mkp__heading_h4 editable">Professional Summary</h4>
-        <p class="editable">
+        <h4 class="mkp__font__bold mkp__heading_h4 editable professional-heading">Professional Summary</h4>
+        <p class="editable professionaltext">
           An experienced person over 7 years of experience, skilled in
           software development, implementation and management. I work well
           under pressure and consistently meets deadlines and targets while
@@ -64,13 +64,13 @@
       </section>
 
       <section class="mkp__tools mkp__my">
-        <h4 class="mkp__font__bold mkp_mb editable">
+        <h4 class="mkp__font__bold mkp_mb editable skills">
           Language, Framework, Tools and Other Skills
         </h4>
 
         <div class="mkp__tool">
           <div class="mkp__tool__left editable">
-            <ul class="editable">
+            <ul class="editable skill-list">
               <li>.Net Core, Web API, NodeJs</li>
               <li>Asp.net, .Net MVC</li>
               <li>C#, VB.Net</li>
@@ -81,7 +81,7 @@
           </div>
 
           <div class="mkp__tool__right">
-            <ul class="editable">
+            <ul class="editable skill-list">
               <li>Bootstrap CSS, HTML</li>
               <li>Crystal and RDLC Report</li>
               <li>
@@ -327,7 +327,10 @@
   </div>
 
 <script src="~/js/cv-template.js"></script>
-<script src="~/js/cv-builder.js"></script>
+@section scripts{
+    <script src="~/js/cv-builder.js"></script>
+}
+
 </body>
 
 </html>
