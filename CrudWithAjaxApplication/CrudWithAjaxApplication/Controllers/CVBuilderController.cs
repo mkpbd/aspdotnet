@@ -1,4 +1,5 @@
 ﻿using CrudWithAjaxApplication.GenericInterfaces;
+using CrudWithAjaxApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudWithAjaxApplication.Controllers
@@ -18,7 +19,12 @@ namespace CrudWithAjaxApplication.Controllers
             return View();
         }
 
+        public async Task<JsonResult> CVBuilderAdd(Customer customer)
+        {
 
 
+            return new JsonResult("Add Successful");
+
+        }
     }
 }

@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("#saveData").click(function () {
-      
+
         let name = document.querySelector('.cvName');
         let email = document.querySelector('.email');
         let mobile = document.querySelector('.mobile');
@@ -13,11 +13,11 @@ $(document).ready(function () {
         let socialMeida = [];
 
         for (let socialIcon = 0; socialIcon < sociallink.length; socialIcon++) {
-             //debugger
+            //debugger
             let icon = socailName[socialIcon].innerText;
             let name = sociallink[socialIcon].innerText;
 
-            socialMeida.push({ SocailName : icon, SocialLink:name });
+            socialMeida.push({ SocailName: icon, SocialLink: name });
         }
 
         // professional sumarray 
@@ -35,7 +35,7 @@ $(document).ready(function () {
         for (let i = 0; i < skillList.length; i++) {
             let skillName = skillList[i].innerText;
 
-            skillItem.push({skillName: skillName})
+            skillItem.push({ skillName: skillName })
         }
 
 
@@ -46,26 +46,26 @@ $(document).ready(function () {
         let companys = document.querySelectorAll('.companyName');
         let workingYears = document.querySelectorAll('.yorking-year');
         let workingTools = document.querySelectorAll('.workingTools li');
-   //     debugger
+        //     debugger
         const WorkingExperince = [];
 
         let countForNestLopping = 0;
-      
+
 
         for (let i = 0; i < postion.length; i++) {
             let positionName = postion[i].innerText;
             let companyName = companys[i].innerText;
             let workingYear = workingYears[i].innerText;
-           
+
             let Tools = [];
-    
+
 
             for (let j = 0; j < workingTools.length; j++) {
-                debugger;
+                //    debugger;
                 let workingTool = workingTools[j].innerText;
                 Tools.push({ item: workingTool });
             }
-           // countForNestLopping += positionName.length;
+            // countForNestLopping += positionName.length;
 
 
             WorkingExperince.push({ positionName: positionName, companyName: companyName, workingYear: workingYear, workingTool: Tools })
@@ -73,11 +73,26 @@ $(document).ready(function () {
         }
 
         // Personal and industrial project
-      let project =   document.querySelector('.project');
+        let projects = [];
+        let project = document.querySelector('.project');
         let projectPersonal = document.querySelector('.projectPersonal');
         let projecDscription = document.querySelector('.projecDscription');
-        let projectCompany = document.querySelectorAll('.projectCompany');
-        let projectCompanyDescription = document.querySelectorAll('.projectCompanyDescription');
+        let projectCompanys = document.querySelectorAll('.projectCompany');
+        let projectCompanyDescriptions = document.querySelectorAll('.projectCompanyDescription');
+
+        for (let i = 0; i < projectCompanys.length; i++) {
+            let projectCompany = projectCompanys[i].innerText;
+            let projectCompanyDescription = projectCompanyDescriptions[i].innerText;
+
+            projects.push({
+                project: project.innerText, projectPersonal: projectPersonal.innerText,
+                projecDscription: projecDscription.innerText, projectCompany: projectCompany, projectCompanyDescription: projectCompanyDescription
+            })
+
+
+
+
+        }
 
 
 
@@ -87,18 +102,62 @@ $(document).ready(function () {
 
 
         // education
+        const education = [];
 
-        let subject = document.querySelectorAll('.subject');
+        let subjects = document.querySelectorAll('.subject');
 
-        let passingYear = document.querySelectorAll('.passing-year');
+        let passingYears = document.querySelectorAll('.passing-year');
+
+        for (let i = 0; i < subjects.length; i++) {
+            let subject = subjects[i].innerText;
+            let passingYear = passingYears[i].innerText;
+
+            education.push({ subject: subject, passingYear: passingYear })
+
+        }
 
 
-        // 
+        //  referece
+
+        let reffenceDesig = document.querySelectorAll('.reffenceDesig');
+        let reffenceName = document.querySelectorAll('.reffenceName');
+
+        const refference = [];
+        for (let i = 0; i < reffenceDesig.length; i++) {
+            let designation = reffenceDesig[i].innerText;
+            let name = reffenceName[i].innerText;
+
+            refference.push({ designation: designation, name: name });
+        }
 
 
-        console.log(socialMeida, skillItem, WorkingExperince);
-      
- 
+        const Data = {
+            socialMeida: socialMeida,
+            skillItem: skillItem,
+            WorkingExperince: WorkingExperince,
+            projects: projects,
+            education: education,
+            refference: refference
+
+        }
+
+
+        //console.log(Data);
+
+        $.ajax({
+            type: "POST",
+            url: "CVBuilder/CVBuilderAdd",
+            data: Data,
+            contentType: 'application/x-www-form-urlencoded',
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(msg);
+            }
+
+
+
+        });
 
     });
 
