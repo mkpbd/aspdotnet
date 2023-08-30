@@ -1,14 +1,9 @@
 ﻿// A $( document ).ready() block.
 $(document).ready(function () {
 
-    $("#saveData").click(function () {
-
-        let name = document.querySelector('.cvName');
-        let email = document.querySelector('.email');
-        let mobile = document.querySelector('.mobile');
+    function getsocialMedia() {
         let socailName = document.querySelectorAll('.socialName');
         let sociallink = document.querySelectorAll('.sociallink');
-        let address = document.querySelector('.address');
 
         let socialMeida = [];
 
@@ -20,12 +15,23 @@ $(document).ready(function () {
             socialMeida.push({ SocailName: icon, SocialLink: name });
         }
 
-        // professional sumarray 
+        return socialMeida;
+    }
+
+    function getProfessionalSummary() {
         let professionalHeading = document.querySelector('.professional-heading');
         let professionaltext = document.querySelector('.professionaltext');
 
+        const summary = {
+            heading: professionalHeading.innerText,
+            summary: professionaltext.innerText
+        }
 
-        // language framework and tools
+        return summary;
+    }
+    
+
+    function getProfessionalSkill() {
 
         let skill = document.querySelector('.skills');
         let skillList = document.querySelectorAll('.skill-list li');
@@ -38,9 +44,11 @@ $(document).ready(function () {
             skillItem.push({ skillName: skillName })
         }
 
+        return skillItem;
+    }
 
 
-        //  working expericene
+    function getWorkingExperience() {
 
         let postion = document.querySelectorAll('.position')
         let companys = document.querySelectorAll('.companyName');
@@ -68,11 +76,20 @@ $(document).ready(function () {
             // countForNestLopping += positionName.length;
 
 
-            WorkingExperince.push({ positionName: positionName, Company: companyName, workingYear: workingYear, workingTool: Tools })
+            WorkingExperince.push({
+                positionName: positionName,
+                Company: companyName,
+                workingYear: workingYear,
+                workingTool: Tools
+            })
 
         }
 
-        // Personal and industrial project
+        return WorkingExperince;
+    }
+
+
+    function getPersonalAndIndustrialProject() {
         let projects = [];
         let project = document.querySelector('.project');
         let projectPersonal = document.querySelector('.projectPersonal');
@@ -85,23 +102,35 @@ $(document).ready(function () {
             let projectCompanyDescription = projectCompanyDescriptions[i].innerText;
 
             projects.push({
-                project: project.innerText, projectPersonal: projectPersonal.innerText,
-                Description: projecDscription.innerText, Title: projectCompany, projectCompanyDescription: projectCompanyDescription
+                project: project.innerText,
+                projectPersonal: projectPersonal.innerText,
+                Description: projecDscription.innerText,
+                Title: projectCompany,
+                projectCompanyDescription: projectCompanyDescription
             })
-
-
-
 
         }
 
+        return projects;
+    }
 
 
-        // profesional Traing
+    function getReference() {
+        let reffenceDesig = document.querySelectorAll('.reffenceDesig');
+        let reffenceName = document.querySelectorAll('.reffenceName');
 
-        let traings = document.querySelectorAll('.professionTraining');
+        const refference = [];
+        for (let i = 0; i < reffenceDesig.length; i++) {
+            let designation = reffenceDesig[i].innerText;
+            let name = reffenceName[i].innerText;
 
+            refference.push({ Designation: designation, name: name });
+        }
 
-        // education
+        return refference;
+    }
+
+    function getEducation() {
         const education = [];
 
         let subjects = document.querySelectorAll('.subject');
@@ -115,20 +144,55 @@ $(document).ready(function () {
             education.push({ Institution: subject, GraduationYear: passingYear })
 
         }
+        return education;
+    }
 
+    function getTraining() {
+        let training = document.querySelectorAll('.professionTraining li');
+        const trains = [];
+
+        for (let i = 0; i < training.length; i++) {
+
+            trains.push({train: training[i].innerText})
+        }
+
+        return trains;
+    }
+
+    $("#saveData").click(function () {
+
+        let name = document.querySelector('.cvName');
+        let email = document.querySelector('.email');
+        let mobile = document.querySelector('.mobile');
+       
+        let address = document.querySelector('.address');
+        const socialMeida =   getsocialMedia();
+   
+
+        // professional sumarray 
+        const summary = getProfessionalSummary();
+  
+        const skillItem = getProfessionalSkill();
+
+        // language framework and tools
+
+
+        //  working expericene
+        const WorkingExperince = getWorkingExperience();
+
+        // Personal and industrial project
+        const projects = getPersonalAndIndustrialProject();
+
+        // profesional Traing
+        const trains = getTraining();
+
+        // education
+     
+        const education = getEducation();
 
         //  referece
 
-        let reffenceDesig = document.querySelectorAll('.reffenceDesig');
-        let reffenceName = document.querySelectorAll('.reffenceName');
-
-        const refference = [];
-        for (let i = 0; i < reffenceDesig.length; i++) {
-            let designation = reffenceDesig[i].innerText;
-            let name = reffenceName[i].innerText;
-
-            refference.push({ Designation: designation, name: name });
-        }
+        const refference = getReference();
 
 
         const Data = {
@@ -140,7 +204,10 @@ $(document).ready(function () {
             WorkExperience: WorkingExperince,
             Project: projects,
             Education: education,
-            Reference: refference
+            Reference: refference,
+            Summary: summary,
+            Trainning: trains
+
 
         }
 

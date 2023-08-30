@@ -117,6 +117,37 @@ p.yorking-year {
 p.yorking-year {
     text-align: right;
 }
+#saveData{
+    display:none;
+    background-color:forestgreen;
+    color:white;
+    transition:.5s;
+}
+button {
+    border: none;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-weight:normal;
+    font-family:Arial;
+    font-size:18px;
+   
+}
+    button#cvEditable:hover, #saveData:hover {
+        background: #5c71b1;
+        // color: #000;
+    }
+
+    button#cvEditable {
+        background: orange;
+        color: white;
+        position: absolute;
+        right: 100px;
+        transition:.5s;
+    }
+
+
+
 
 /* The Modal (background) */
 .modal {
@@ -171,3 +202,5 @@ p.yorking-year {
         background-color: blueviolet;
         color: #fff;
     }
+
+

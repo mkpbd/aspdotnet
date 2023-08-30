@@ -1,4 +1,6 @@
 ﻿let editable = document.querySelectorAll('.editable');
+let edittableId = document.getElementById('cvEditable');
+let saveButton = document.getElementById('saveData');
 
 let uploadImage = document.getElementById('image-upload');
 
@@ -45,65 +47,81 @@ span.addEventListener("click", function (event) {
 //     console.log(p.innerHTML);
 // })
 
-editable.forEach(function (elem) {
-
-    elem.addEventListener('mouseenter', function (ev) {
-        ev.preventDefault();
-        // console.log(elem.innerHTML);
-        //  elem.setAttribute('contenteditable', 'true');
-        ev.target.setAttribute('contenteditable', 'true');
-        ev.target.style.border = '1px solid #ddd';
-        ev.target.padding = 'none';
-
-       // editButton.style.top = (ev.layerY) + 'px';
-      //  editButton.style.display = 'block';
-
-      //  console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
-        // anchor.setAttribute('contenteditable', 'true');
-        // anchor.addEventListener('input', function(e){
 
 
-        // });
-    });
-})
+//editable.forEach(function (elem) {
 
-editable.forEach(function (elem) {
+//    elem.addEventListener('mouseenter', function (ev) {
+//        ev.preventDefault();
+//        // console.log(elem.innerHTML);
+//        //  elem.setAttribute('contenteditable', 'true');
+//        ev.target.setAttribute('contenteditable', 'true');
+//        ev.target.style.border = '1px solid #ddd';
+//        ev.target.padding = 'none';
 
-    elem.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        // console.log(elem.innerHTML);
-        //  elem.setAttribute('contenteditable', 'true');
-        ev.target.setAttribute('contenteditable', 'true');
-        ev.target.style.border = '1px solid #ddd';
-        ev.target.padding = 'none';
+//       // editButton.style.top = (ev.layerY) + 'px';
+//      //  editButton.style.display = 'block';
 
-       // editButton.style.top = (ev.layerY) + 'px';
-      //  editButton.style.display = 'block';
-
-     //   console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
-        // anchor.setAttribute('contenteditable', 'true');
-        // anchor.addEventListener('input', function(e){
+//      //  console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
+//        // anchor.setAttribute('contenteditable', 'true');
+//        // anchor.addEventListener('input', function(e){
 
 
-        // });
-    });
-})
+//        // });
+//    });
+//})
+
+//editable.forEach(function (elem) {
+
+//    elem.addEventListener('click', function (ev) {
+//        ev.preventDefault();
+//        // console.log(elem.innerHTML);
+//        //  elem.setAttribute('contenteditable', 'true');
+//        ev.target.setAttribute('contenteditable', 'true');
+//        ev.target.style.border = '1px solid #ddd';
+//        ev.target.padding = 'none';
+
+//       // editButton.style.top = (ev.layerY) + 'px';
+//      //  editButton.style.display = 'block';
+
+//     //   console.log(ev);        // let anchor = ev.tagret.document.querySelector('a');
+//        // anchor.setAttribute('contenteditable', 'true');
+//        // anchor.addEventListener('input', function(e){
+
+
+//        // });
+//    });
+//})
 
 // mouse leave event
 
-editable.forEach(function (elem) {
+//editable.forEach(function (elem) {
 
-    elem.addEventListener('mouseout', function (ev) {
-        ev.preventDefault();
+//    elem.addEventListener('mouseout', function (ev) {
+//        ev.preventDefault();
 
-        ev.target.setAttribute('contenteditable', false);
-        ev.target.style.border = 'none';
-        ev.target.style.padding = '0px';
-        editButton.style.display = 'none';
+//        ev.target.setAttribute('contenteditable', false);
+//        ev.target.style.border = 'none';
+//        ev.target.style.padding = '0px';
+//        editButton.style.display = 'none';
 
-        // });
-    });
-})
+//        // });
+//    });
+//})
+
+
+edittableId.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    console.log("clicked edit button");
+    editable.forEach(function (el) {
+        el.setAttribute('contenteditable', 'true');
+        el.style.border = '1px solid #ddd';
+        el.padding = 'none';
+        console.log("clicked edit button");
+    })
+    saveButton.style.display = 'block';
+
+});
 
 
 
