@@ -309,6 +309,12 @@ $(document).ready(function () {
     }
 
 
+    $('#download_button').click(function (ev) {
+        ev.preventDefault();
+        download();
+
+    })
+
     function download() {
         var linkSource = $('#cropped_image_result img').attr('src');
         var fileName = 'download.png';
@@ -318,10 +324,18 @@ $(document).ready(function () {
         downloadLink.click();
     }
 
+    $('#upload_button').click(function (ev) {
+        ev.preventDefault();
+        upload();
+
+    })
+
     function upload() {
         var base64data = $('#cropped_image_result img').attr('src');
         //alert(base64data);
         debugger;
+
+        return;
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -341,5 +355,41 @@ $(document).ready(function () {
 
 
 
+    // javaScript PDf Converter
+
+    const pdf = document.getElementById('pdfdownload');
+    window.jsPDF = window.jspdf.jsPDF;
+
+
+    pdf.addEventListener('click', function (ev) {
+        ev.preventDefault();
+      
+
+        let doc = new jsPDF();
+
+        // Source HTMLElement or a string containing HTML.
+        let elementHTML = document.querySelector(".mkp_container");
+
+        doc.html(elementHTML, {
+            callback: function (doc) {
+                // Save the PDF
+                doc.save('document-html.pdf');
+            },
+            margin: [10, 10, 10, 10],
+            autoPaging: 'text',
+            x: 0,
+            y: 0,
+            width: 120, //target width in the PDF document
+            windowWidth: 700 //window width in CSS pixels
+        });
+
+    });
+
+
+
+
+    
+
 
 });
+

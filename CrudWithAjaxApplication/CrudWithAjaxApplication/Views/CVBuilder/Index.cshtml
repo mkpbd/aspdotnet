@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.0/cropper.css" />
  <link href="~/css/cvbuilder-one.css" rel="stylesheet" />
  
 </head>
 
 <body>
-  <div class="mkp_container">
+  <div class="mkp_container" id="main-container">
      
          <button id="cvEditable">Edit CV</button>
     <header class="mkp__header">
@@ -44,7 +45,35 @@
           <!-- Modal content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-            <input id="image-change" type="file" accept="image/jpeg, image/png, image/jpg">
+            @* <input id="image-change" type="file" accept="image/jpeg, image/png, image/jpg"> *@
+
+            <div class="container">
+      <div class="row">
+        <div class="col-lg-6" align="center">
+          <label onclick="start_cropping()">Browse image</label>
+          <div id="display_image_div">
+            <img name="display_image_data" id="display_image_data" src="dummy-image.png" alt="Picture">
+          </div>
+          <input type="hidden" name="cropped_image_data" id="cropped_image_data">
+          <br>
+          <input type="file" name="browse_image" id="browse_image" class="form-control">
+        </div>
+        <div class="col-lg-6" align="center">
+          <label>Preview</label>
+          <div id="cropped_image_result">
+            <img style="width: 350px;" src="dummy-image.png" />
+          </div>
+          <br>
+          <button type="button" class="btn btn-success" id="crop_button">Crop</button>
+          <button type="button" class="btn btn-danger" id="download_button">Download</button>
+          <button type="button" class="btn btn-warning" id="upload_button">Upload</button>
+        </div>
+      </div>
+      <!--  end row -->
+    </div>
+
+
+
           </div>
 
         </div>
@@ -325,13 +354,24 @@
       </div>
 
           <button id="saveData">Save CV </button>
+          <button id="pdfdownload"> PDF</button>
+          <button id="wordDownload"> Word File </button>
     </main>
 
     <footer class="mkp__footer"></footer>
   </div>
 
-<script src="~/js/cv-template.js"></script>
+
 @section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.es.js" integrity="sha512-VTufZOUx+Gc0N4JkluA0ZkVs2x4wfDI3p60gRWpHT761kMQ+hiNlYI+8MGXbLO48ymPKAeRa1wsEm3BIaxSEvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.js" integrity="sha512-Bw9Zj8x4giJb3OmlMiMaGbNrFr0ERD2f9jL3en5FmcTXLhkI+fKyXVeyGyxKMIl1RfgcCBDprJJt4JvlglEb3A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.es.js" integrity="sha512-ccZBwXP6zByd5l4Iz6y7Vu2iqGo6t2hwGEuLauWKmTb7AtwhwmqnCr7yvbZBIZxUtH3a1BDaNJz8/MrnpZl8wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js" integrity="sha512-gmqJDkLpXOuVrRDAQa8pWc+WReEL4hO0f07hcCjx9bayyt5YENnZP2MgeSgo5CaUb3feZu/JCEKf69EsFZcQhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.0/cropper.js"></script>
+  
+  <script src="~/js/cv-template.js"></script>
+    
     <script src="~/js/cv-builder.js"></script>
 }
 
