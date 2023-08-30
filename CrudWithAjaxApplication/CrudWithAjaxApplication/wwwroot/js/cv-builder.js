@@ -73,6 +73,28 @@ $(document).ready(function () {
         }
 
         // Personal and industrial project
+      let project =   document.querySelector('.project');
+        let projectPersonal = document.querySelector('.projectPersonal');
+        let projecDscription = document.querySelector('.projecDscription');
+        let projectCompany = document.querySelectorAll('.projectCompany');
+        let projectCompanyDescription = document.querySelectorAll('.projectCompanyDescription');
+
+
+
+        // profesional Traing
+
+        let traings = document.querySelectorAll('.professionTraining');
+
+
+        // education
+
+        let subject = document.querySelectorAll('.subject');
+
+        let passingYear = document.querySelectorAll('.passing-year');
+
+
+        // 
+
 
         console.log(socialMeida, skillItem, WorkingExperince);
       
