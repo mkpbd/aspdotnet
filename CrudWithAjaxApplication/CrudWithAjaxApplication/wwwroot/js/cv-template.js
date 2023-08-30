@@ -116,7 +116,7 @@ edittableId.addEventListener('click', function (ev) {
     editable.forEach(function (el) {
         el.setAttribute('contenteditable', 'true');
         el.style.border = '1px solid #ddd';
-        el.padding = 'none';
+        el.style.padding = '5px 10px';
         console.log("clicked edit button");
     })
     saveButton.style.display = 'block';
