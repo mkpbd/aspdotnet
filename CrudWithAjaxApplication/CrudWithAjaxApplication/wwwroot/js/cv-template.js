@@ -20,21 +20,6 @@ uploadImage.addEventListener('click', function (event) {
     console.log(uploadImage);
 });
 
-const imageArray = [];
-imageChange.addEventListener('change', function (event) {
-    console.log(imageChange.files);
-
-    if (imageChange.files[0].name != null || imageChange.files[0].name != undefined) {
-        //  uploadImage.setAttribute('src', imageChange.files[0].name)
-        imageArray.push(imageChange.files[0]);
-
-
-    }
-
-    console.log('image pushed', imageArray);
-
-});
-
 span.addEventListener("click", function (event) {
 
     modal.style.display = 'none';
@@ -112,7 +97,7 @@ span.addEventListener("click", function (event) {
 
 edittableId.addEventListener('click', function (ev) {
     ev.preventDefault();
-    console.log("clicked edit button");
+    //console.log("clicked edit button");
     editable.forEach(function (el) {
         el.setAttribute('contenteditable', 'true');
         el.style.border = '1px solid #ddd';

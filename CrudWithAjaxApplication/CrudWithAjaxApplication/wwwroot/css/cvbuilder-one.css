@@ -8,7 +8,9 @@
     font-style: normal;
 }
 
-p,
+p {
+    line-height: 15px;
+}
 li {
     line-height: 25px;
 }
@@ -90,9 +92,11 @@ ul li {
     grid-gap: 20px;
 }
 
-p.yorking-year {
+.mkp__header__image img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid green;
 }
-
 .mkp__education__container {
     display: grid;
     grid-template-columns: 78% 21%;
