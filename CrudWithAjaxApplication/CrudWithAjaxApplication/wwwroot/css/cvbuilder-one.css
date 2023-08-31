@@ -210,3 +210,15 @@ ul.skill-list {
     }
 
 
+
+@media screen and (max-width: 992px) {
+    .mkp_container {
+        width: 100vw;
+        padding:0px;
+    }
+
+    button#cvEditable {
+        right: 10px;
+      
+    }
+}
