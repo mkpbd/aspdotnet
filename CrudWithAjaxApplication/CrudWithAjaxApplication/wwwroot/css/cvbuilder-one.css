@@ -214,9 +214,14 @@ ul.skill-list {
     display: grid;
     grid-template-columns: 35% 64%;
     grid-column-gap: 15px;
-    grid-row-gap:10px;
+    margin-bottom:5px;
 }
 
+.mkp__header__information address p {
+    display: grid;
+    grid-template-columns: 26% 72%;
+    gap: 10px 18px;
+}
 
 @media screen and (max-width: 992px) {
     .mkp_container {
