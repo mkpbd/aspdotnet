@@ -79,10 +79,10 @@ ul li {
     padding: 20px;
 }
 
-.mkp__tool {
+/*.mkp__tool {
     display: grid;
     grid-template-columns: 50% 50%;
-}
+}*/
 
 .mkp__repeact__grid__container {
     display: grid;
@@ -95,7 +95,8 @@ p.yorking-year {
 
 .mkp__education__container {
     display: grid;
-    grid-template-columns: 78% 20%;
+    grid-template-columns: 78% 21%;
+    grid-gap: 0px 14px;
 }
 
     .mkp__education__container p {
@@ -103,9 +104,10 @@ p.yorking-year {
     }
 
 .mkp__industiral__container {
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 29% 70%;
     display: grid;
     margin-bottom: 20px;
+    grid-gap: 0px 14px;
 }
 
 .mkp__references__container {
@@ -146,7 +148,11 @@ button {
         transition:.5s;
     }
 
-
+ul.skill-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px 15px;
+}
 
 
 /* The Modal (background) */
