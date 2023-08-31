@@ -333,13 +333,15 @@ $(document).ready(function () {
     function upload() {
         var base64data = $('#cropped_image_result img').attr('src');
         //alert(base64data);
-        debugger;
 
-        return;
+    //    let formdata = new FormData(base64data);
+        //debugger;
+
+        //return;
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "controlerName/methodName",
+            url: "CVBuilder/ImageUpload",
             data: {
                 image: base64data
             },
