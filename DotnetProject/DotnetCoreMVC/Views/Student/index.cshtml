@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DotnetCoreMVC.Models.Student>
+
+<html>
+<head>
+    <title>Student Details</title>
+  <style>
+      tr{
+          border: 1px solid red;
+          margin:10px;
+      }
+      td{
+          margin: 10px;
+          border-right: 2px solid #000;
+          padding:5px;
+      }
+  </style>
+</head>
+<body>
+    <br />
+    <br />
+    <table>
+        <tr >
+            <td>Name: </td>
+            <td>Student ID: </td>
+            <td>Gender: </td>
+            <td>Branch: </td>
+            <td>Section: </td>
+
+        </tr>
+
+        @foreach (var item in @Model)
+        {
+            <tr>
+
+                <td>@item.Name</td>
+
+
+                <td>@item.Gender </td>
+
+
+                <td>@item.Branch</td>
+
+
+                <td>@item.Section </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
